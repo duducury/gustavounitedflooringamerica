@@ -28,7 +28,7 @@
     var cap = lb.querySelector("[data-lightbox-caption]");
     if (imgEl) {
       imgEl.src = srcFor(imgs[i]);
-      imgEl.alt = "Gallery photo — " + (i + 1) + " of " + imgs.length;
+      imgEl.alt = "Flooring installation project photo in Connecticut — " + (i + 1) + " of " + imgs.length;
     }
     if (cap) cap.textContent = i + 1 + " / " + imgs.length;
     lb.classList.add("is-open");
@@ -68,7 +68,7 @@
       btn.setAttribute("role", "listitem");
       var im = document.createElement("img");
       im.src = srcFor(fn);
-      im.alt = "";
+      im.alt = "Connecticut flooring installation project — thumbnail " + (i + 1) + " of " + imgs.length;
       im.width = 400;
       im.height = 400;
       im.loading = i < 24 ? "eager" : "lazy";

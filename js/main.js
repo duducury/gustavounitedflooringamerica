@@ -183,143 +183,173 @@
     observer.observe(section);
   })();
 
-  /** Faixa #estimate-cta (< md): full-viewport + clip-path = foto “presa ao ecrã” como background fixed; só cover + clip, sem scale/transform (evita distorções). Sem JS / “Reduzir movimento” ⇒ .estimate-cta-mobile-photo no fluxo. */
-  (function setupEstimateCtaMobileFixedBackdrop() {
-    var section = document.getElementById("estimate-cta");
-    var fallback = section && section.querySelector(".estimate-cta-mobile-photo");
-    if (!section || !fallback) return;
+  /** #estimate-cta (< md): clip-path fixed overlay; desktop = .cta-parallax-bg (static1.jpeg) + fixed; mobile <img> static2.png */
+  (function setupCtaPhotoStripsMobileBackdrop() {
+    function setupStrip(section) {
+      if (!section) return;
+      var fallback = section.querySelector(".estimate-cta-mobile-photo");
+      if (!fallback) return;
 
-    var mqDesk = window.matchMedia("(min-width: 768px)");
-    var mqReduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+      var mqDesk = window.matchMedia("(min-width: 768px)");
+      var mqReduce = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-    function vhPx() {
+      function vhPx() {
+        try {
+          if (window.visualViewport && window.visualViewport.height) {
+            return window.visualViewport.height;
+          }
+        } catch (_) {}
+        return window.innerHeight || document.documentElement.clientHeight || 0;
+      }
+
+      function resolveSrc() {
+        var ds = section.getAttribute("data-mobile-photo");
+        var fs = fallback.getAttribute("src");
+        var raw = ds && ds.trim() ? ds : fs ? fs : "";
+        return raw ? raw.trim() : "";
+      }
+
+      var srcNow = resolveSrc();
+      if (!srcNow) return;
+
+      var layer = document.createElement("div");
+      layer.className = "estimate-cta-fixed-clip-root";
+      layer.setAttribute("aria-hidden", "true");
+
+      layer.style.cssText =
+        "position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;min-height:100dvh;pointer-events:none;overflow:hidden;z-index:37;background-color:transparent;visibility:hidden";
+
+      var overlayImg = document.createElement("img");
+      overlayImg.alt = "";
+      overlayImg.decoding = "async";
+
+      var overlayReady = false;
+
+      overlayImg.onload = function () {
+        overlayReady = true;
+        compute();
+      };
+
+      overlayImg.onerror = function () {
+        overlayReady = false;
+        section.classList.add("estimate-cta-show-inline-photo");
+        teardown();
+      };
+
+      overlayImg.src = srcNow;
+
+      overlayImg.style.cssText =
+        "display:block;margin:0;padding:0;position:absolute;left:0;top:0;width:100%;height:100%;max-width:none;box-sizing:border-box;" +
+        "-o-object-fit:cover;-webkit-object-fit:cover;object-fit:cover;" +
+        "-o-object-position:center;-webkit-object-position:center;object-position:center center;" +
+        "-webkit-backface-visibility:hidden;backface-visibility:hidden";
+
+      layer.appendChild(overlayImg);
+
+      if (overlayImg.complete && overlayImg.naturalWidth > 0) {
+        overlayReady = true;
+      }
+
+      var ticking = false;
+
+      function teardown() {
+        if (layer.parentNode) document.body.removeChild(layer);
+        layer.style.clipPath = "";
+        layer.style.webkitClipPath = "";
+      }
+
+      function compute() {
+        ticking = false;
+        if (mqDesk.matches || mqReduce.matches) {
+          teardown();
+          return;
+        }
+
+        if (!layer.parentNode) document.body.appendChild(layer);
+
+        if (!overlayReady) {
+          layer.style.visibility = "hidden";
+          layer.style.webkitClipPath = "";
+          layer.style.clipPath = "";
+          return;
+        }
+
+        var rect = section.getBoundingClientRect();
+        var vh = vhPx();
+
+        if (vh <= 0 || rect.bottom <= 0 || rect.top >= vh) {
+          layer.style.visibility = "hidden";
+          return;
+        }
+
+        var topInset = Math.max(0, rect.top);
+        var bottomInset = Math.max(0, vh - rect.bottom);
+
+        layer.style.visibility = "visible";
+        var clipStr = "inset(" + topInset + "px 0px " + bottomInset + "px 0px)";
+        layer.style.clipPath = clipStr;
+        layer.style.webkitClipPath = clipStr;
+      }
+
+      function schedule() {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(compute);
+        }
+      }
+
+      compute();
+
+      window.addEventListener("scroll", schedule, { passive: true });
+      window.addEventListener("resize", compute, { passive: true });
+
       try {
-        if (window.visualViewport && window.visualViewport.height) {
-          return window.visualViewport.height;
+        if (window.visualViewport && window.visualViewport.addEventListener) {
+          window.visualViewport.addEventListener("resize", schedule);
         }
       } catch (_) {}
-      return window.innerHeight || document.documentElement.clientHeight || 0;
-    }
 
-    function resolveSrc() {
-      var ds = section.getAttribute("data-mobile-photo");
-      var fs = fallback.getAttribute("src");
-      var raw = ds && ds.trim() ? ds : fs ? fs : "";
-      if (!raw) return "";
-      var q = raw.indexOf("?");
-      return q >= 0 ? raw.slice(0, q).trim() : raw.trim();
-    }
-
-    var srcNow = resolveSrc();
-    if (!srcNow) return;
-
-    var layer = document.createElement("div");
-    layer.className = "estimate-cta-fixed-clip-root";
-    layer.setAttribute("aria-hidden", "true");
-
-    layer.style.cssText =
-      "position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;min-height:100dvh;pointer-events:none;overflow:hidden;z-index:37;background-color:transparent;visibility:hidden";
-
-    var overlayImg = document.createElement("img");
-    overlayImg.alt = "";
-    overlayImg.decoding = "async";
-
-    var overlayReady = false;
-
-    overlayImg.onload = function () {
-      overlayReady = true;
-      compute();
-    };
-
-    overlayImg.onerror = function () {
-      overlayReady = false;
-      section.classList.add("estimate-cta-show-inline-photo");
-      teardown();
-    };
-
-    overlayImg.src = srcNow;
-
-    overlayImg.style.cssText =
-      "display:block;margin:0;padding:0;position:absolute;left:0;top:0;width:100%;height:100%;max-width:none;box-sizing:border-box;" +
-      "-o-object-fit:cover;-webkit-object-fit:cover;object-fit:cover;" +
-      "-o-object-position:center;-webkit-object-position:center;object-position:center center;" +
-      "-webkit-backface-visibility:hidden;backface-visibility:hidden";
-
-    layer.appendChild(overlayImg);
-
-    if (overlayImg.complete && overlayImg.naturalWidth > 0) {
-      overlayReady = true;
-    }
-
-    var ticking = false;
-
-    function teardown() {
-      if (layer.parentNode) document.body.removeChild(layer);
-      layer.style.clipPath = "";
-      layer.style.webkitClipPath = "";
-    }
-
-    function compute() {
-      ticking = false;
-      if (mqDesk.matches || mqReduce.matches) {
-        teardown();
-        return;
+      if (typeof mqDesk.addEventListener === "function") {
+        mqDesk.addEventListener("change", compute);
+      } else if (typeof mqDesk.addListener === "function") {
+        mqDesk.addListener(compute);
       }
 
-      if (!layer.parentNode) document.body.appendChild(layer);
-
-      if (!overlayReady) {
-        layer.style.visibility = "hidden";
-        layer.style.webkitClipPath = "";
-        layer.style.clipPath = "";
-        return;
-      }
-
-      var rect = section.getBoundingClientRect();
-      var vh = vhPx();
-
-      if (vh <= 0 || rect.bottom <= 0 || rect.top >= vh) {
-        layer.style.visibility = "hidden";
-        return;
-      }
-
-      var topInset = Math.max(0, rect.top);
-      var bottomInset = Math.max(0, vh - rect.bottom);
-
-      layer.style.visibility = "visible";
-      var clipStr = "inset(" + topInset + "px 0px " + bottomInset + "px 0px)";
-      layer.style.clipPath = clipStr;
-      layer.style.webkitClipPath = clipStr;
-    }
-
-    function schedule() {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(compute);
+      if (typeof mqReduce.addEventListener === "function") {
+        mqReduce.addEventListener("change", compute);
+      } else if (typeof mqReduce.addListener === "function") {
+        mqReduce.addListener(compute);
       }
     }
 
-    compute();
+    setupStrip(document.getElementById("estimate-cta"));
+  })();
 
-    window.addEventListener("scroll", schedule, { passive: true });
-    window.addEventListener("resize", compute, { passive: true });
+  /** Services page FAQ: one accordion open at a time */
+  (function setupServicesFaqAccordion() {
+    var root = document.querySelector(".services-faq");
+    if (!root) return;
 
-    try {
-      if (window.visualViewport && window.visualViewport.addEventListener) {
-        window.visualViewport.addEventListener("resize", schedule);
-      }
-    } catch (_) {}
+    var items = root.querySelectorAll(".services-faq__item");
+    if (!items.length) return;
 
-    if (typeof mqDesk.addEventListener === "function") {
-      mqDesk.addEventListener("change", compute);
-    } else if (typeof mqDesk.addListener === "function") {
-      mqDesk.addListener(compute);
+    function setOpen(item, open) {
+      item.classList.toggle("is-open", open);
+      var btn = item.querySelector(".services-faq__trigger");
+      var panel = item.querySelector(".services-faq__panel");
+      if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
+      if (panel) panel.setAttribute("aria-hidden", open ? "false" : "true");
     }
 
-    if (typeof mqReduce.addEventListener === "function") {
-      mqReduce.addEventListener("change", compute);
-    } else if (typeof mqReduce.addListener === "function") {
-      mqReduce.addListener(compute);
-    }
+    items.forEach(function (item) {
+      var btn = item.querySelector(".services-faq__trigger");
+      if (!btn) return;
+      btn.addEventListener("click", function () {
+        var willOpen = !item.classList.contains("is-open");
+        items.forEach(function (other) {
+          setOpen(other, other === item ? willOpen : false);
+        });
+      });
+    });
   })();
 })();
