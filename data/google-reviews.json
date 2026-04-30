@@ -1,0 +1,103 @@
+{
+  "placeName": "United Flooring America",
+  "placeId": "",
+  "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=United+Flooring+America+Southwestern+Connecticut",
+  "writeReviewUrl": "https://www.google.com/search?hl=en-US&gl=us&q=United+Flooring+America&ludocid=13701036236679917887&lsig=AB86z5VuASCO6rHHp3mXzpqPfKMh#lrd=0xd91a37ac19c9919:0xbe23dbddb60fb13f,3",
+  "rating": 5,
+  "userRatingsTotal": 11,
+  "reviews": [
+    {
+      "authorName": "Taty's Cleaning",
+      "rating": 5,
+      "text": "Great service ! We recommend them to all our clients.",
+      "relativeTimeDescription": "a day ago",
+      "subtitle": "",
+      "reviewTimeUtcSeconds": null
+    },
+    {
+      "authorName": "number1CT",
+      "rating": 5,
+      "text": "Five-star rating on Google Maps.",
+      "relativeTimeDescription": "2 days ago",
+      "subtitle": "",
+      "reviewTimeUtcSeconds": null
+    },
+    {
+      "authorName": "Pablo Feliciano",
+      "rating": 5,
+      "text": "Very prompt and knowledgable. Very Pleased with his presentation in helping to make our choice.",
+      "relativeTimeDescription": "2 weeks ago",
+      "subtitle": "",
+      "reviewTimeUtcSeconds": null
+    },
+    {
+      "authorName": "Rui Braga",
+      "rating": 5,
+      "text": "I recently had United Flooring America install hardwood floors in my home, and the results are stunning. The team was incredibly meticulous with the layout and ensuring the transitions between rooms were seamless. They clearly take pride in their craft.",
+      "relativeTimeDescription": "3 weeks ago",
+      "subtitle": "",
+      "reviewTimeUtcSeconds": null
+    },
+    {
+      "authorName": "Miklovan Vito",
+      "rating": 5,
+      "text": "Very happy with the work done by United Flooring America, they are very professional and on time. Highly recommended!",
+      "relativeTimeDescription": "a month ago",
+      "subtitle": "",
+      "reviewTimeUtcSeconds": null
+    },
+    {
+      "authorName": "kiajah white",
+      "rating": 5,
+      "text": "Extremely professional and the floors are absolutely beautiful. The floors have a superior finish (like aluminum oxide or urethane) that protect against scratches and pet damage are highly valued. I love it!!!",
+      "relativeTimeDescription": "a month ago",
+      "subtitle": "",
+      "reviewTimeUtcSeconds": null
+    },
+    {
+      "authorName": "Chris Anderson",
+      "rating": 5,
+      "text": "Affordable and good quality work. Very happy with the work done by United.",
+      "relativeTimeDescription": "a month ago",
+      "subtitle": "",
+      "reviewTimeUtcSeconds": null
+    },
+    {
+      "authorName": "Vinithra Babu",
+      "rating": 5,
+      "text": "Amazing work. Very professional. Does the job on time.",
+      "relativeTimeDescription": "a month ago",
+      "subtitle": "",
+      "reviewTimeUtcSeconds": null
+    },
+    {
+      "authorName": "G P",
+      "rating": 5,
+      "text": "Very happy with the results! The floors came out great and the crew was professional and respectful. I would recommend United Flooring America to anyone who's looking to get their floors done.",
+      "relativeTimeDescription": "a month ago",
+      "subtitle": "",
+      "reviewTimeUtcSeconds": null
+    },
+    {
+      "authorName": "Daily beauty Beauty",
+      "rating": 5,
+      "text": "Excellent experience ! The team was professional, on time, and did a fantastic job on my salon floors. The quality of the work was outstanding and they left everything very clean. I would definitely hire them again. Highly recommend.",
+      "relativeTimeDescription": "a month ago",
+      "subtitle": "",
+      "reviewTimeUtcSeconds": null
+    },
+    {
+      "authorName": "mateus lima",
+      "rating": 5,
+      "text": "Amazing quality and is also very professional workers",
+      "relativeTimeDescription": "a month ago",
+      "subtitle": "Local Guide",
+      "reviewTimeUtcSeconds": null
+    }
+  ],
+  "meta": {
+    "source": "manual",
+    "hint": "Atualiza manualmente quando há reviews novos no perfil Google.",
+    "lastUpdated": "2026-04-28"
+  }
+}

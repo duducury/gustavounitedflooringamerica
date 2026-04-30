@@ -1,0 +1,33 @@
+Local images for the United Flooring America website
+====================================================
+
+Header/footer logo: images/unitedflooringamerica/logo.jpg
+(replace your file keeping the name logo.jpg, or edit the HTML paths).
+
+------------------------------------------------------------------------
+
+Folder "unitedflooringamerica/": copies of assets from the old site
+(unitedflooringamerica.com) so those photos do not depend on the internet.
+
+------------------------------------------------------------------------
+
+Changing photos in this project:
+
+  * Replace files in that folder (keeping the same filename), or
+
+  * Open index.html and edit src and alt on <img> tags
+    (hero, gallery, CTA section background).
+
+Social links: on the home page there is a short strip with links to Facebook
+and Instagram (opens the official profiles).
+
+------------------------------------------------------------------------
+
+Paths are relative to the site root, for example:
+  images/unitedflooringamerica/your-filename.jpeg
+
+To preview on your PC, use a local server (e.g. python -m http.server 5500)
+from the project folder.
+
+Large images: resize to a max width around 1600–2000 px before going live,
+so the site stays fast.
