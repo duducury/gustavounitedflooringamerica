@@ -41,7 +41,7 @@
     });
   }, 1800);
 
-  /** Credentials strip: staggered counters (15+, 500+, 100%) when section enters view */
+  /** Credentials strip: staggered counters (26+, 5000+, 100%) when section enters view */
   (function setupTrustSectionCounters() {
     var motion = document.querySelector(".trust-stats-motion.fade-in-section");
     if (!motion) return;
@@ -76,13 +76,14 @@
         return;
       }
 
-      var starts = [430, 1050, 1680];
+      var starts = [430, 950, 1600];
 
       nodes.forEach(function (el, i) {
         var target = Number(el.dataset.countTo);
         if (Number.isNaN(target)) return;
+        var ms = Math.min(2400, 720 + Math.abs(target) * 0.42);
         window.setTimeout(function () {
-          runCounter(el, target, Math.min(1480, 880 + Math.abs(target) * 2));
+          runCounter(el, target, ms);
         }, starts[i] ?? 400 + i * 350);
       });
     }

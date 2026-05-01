@@ -200,8 +200,8 @@
           class="swiper hero-swiper hero-slide-shell w-full [--swiper-pagination-bullet-size:10px]"
         >
           <div class="swiper-wrapper">
-            <!-- Slide 1: brand / trust -->
-            <div class="swiper-slide hero-unified-slide">
+            <!-- Slide 1: home hero — minimal impact -->
+            <div class="swiper-slide hero-unified-slide hero-slide--impact">
               <div class="relative flex hero-slide-shell flex-col overflow-hidden">
                 <h1 class="sr-only">Flooring installation in Connecticut — United Flooring America, hardwood, vinyl, and laminate experts</h1>
                 <div class="pointer-events-none absolute inset-0 z-0">
@@ -222,17 +222,7 @@
                     />
                   </picture>
                   <div class="hero-gradient absolute inset-0 z-[1]"></div>
-                  <div class="hero-unified-watermark absolute inset-0 z-[1] flex items-center justify-center" aria-hidden="true">
-                    <img
-                      src="images/logo-ufa.svg"
-                      alt=""
-                      width="400"
-                      height="120"
-                      class="hero-unified-watermark__img"
-                      decoding="async"
-                    />
-                  </div>
-                  <div class="grain-overlay absolute inset-0 z-[2] opacity-[0.04]" aria-hidden="true"></div>
+                  <div class="grain-overlay absolute inset-0 z-[2] opacity-[0.035]" aria-hidden="true"></div>
                 </div>
                 <div
                   class="hero-unified-front relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center px-4 py-6 pb-[calc(3.75rem+env(safe-area-inset-bottom,0px))] text-center sm:px-6 sm:py-8 sm:pb-[calc(4.25rem+env(safe-area-inset-bottom,0px))] lg:px-8"
@@ -243,11 +233,6 @@
                     </h2>
                     <p class="hero-unified-sub mx-auto mt-4 max-w-xl text-balance sm:mt-5">
                       Proudly serving Connecticut with quality craftsmanship you can trust.
-                    </p>
-                    <p class="hero-unified-trust" aria-label="Credentials">
-                      <span class="hero-unified-check" aria-hidden="true">✔</span> Licensed &amp; Insured
-                      <span class="hero-unified-trust__sep" aria-hidden="true">•</span>
-                      25+ Years Experience
                     </p>
                     <div class="hero-unified-ctas mt-8 flex w-full flex-col items-center gap-3 sm:mt-9">
                       <a
@@ -260,8 +245,8 @@
                 </div>
               </div>
             </div>
-            <!-- Slide 2: services -->
-            <div class="swiper-slide hero-unified-slide">
+            <!-- Slide 2: services overview -->
+            <div class="swiper-slide hero-unified-slide hero-slide--services">
               <div class="relative flex hero-slide-shell flex-col overflow-hidden">
                 <div class="pointer-events-none absolute inset-0 z-0">
                   <img
@@ -279,44 +264,55 @@
                 <div
                   class="hero-unified-front relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center px-4 py-6 pb-[calc(3.75rem+env(safe-area-inset-bottom,0px))] text-center sm:px-6 sm:py-8 sm:pb-[calc(4.25rem+env(safe-area-inset-bottom,0px))] lg:px-8"
                 >
-                  <div class="hero-unified-inner mx-auto flex w-full max-w-3xl flex-col items-center">
-                    <h2 class="hero-unified-title font-display font-bold tracking-tight">
-                      <span class="hero-unified-title__white">Flooring services built for </span><span class="hero-unified-title__gold">your home</span>
+                  <div class="hero-unified-inner hero-services-shell mx-auto flex w-full flex-col items-center">
+                    <p class="hero-services-kicker">Premium flooring solutions</p>
+                    <h2 class="hero-services-main-title font-display font-bold tracking-tight">
+                      <span class="hero-services-main-title__line">Built around </span
+                      ><span class="hero-services-headline-accent">your needs</span>
                     </h2>
-                    <p class="hero-unified-sub mx-auto mt-4 max-w-xl text-balance sm:mt-5">
-                      From installation to refinishing, we handle it all.
-                    </p>
-                    <div class="hero-unified-pills" role="list">
-                      <div class="hero-unified-pill" role="listitem">
-                        <span class="hero-unified-pill__icon" aria-hidden="true">🏠</span>
-                        <span>Installation</span>
+                    <div class="hero-unified-pills hero-services-grid-premium" role="list">
+                      <div class="hero-services-mini-card" role="listitem">
+                        <div class="service-item">
+                          <div class="circle" aria-hidden="true"><span aria-hidden="true">🛠️</span></div>
+                          <span>Installation</span>
+                        </div>
+                        <p class="hero-services-mini-card__desc">Professional and flawless installation</p>
                       </div>
-                      <div class="hero-unified-pill" role="listitem">
-                        <span class="hero-unified-pill__icon" aria-hidden="true">🪵</span>
-                        <span>Hardwood &amp; Laminate</span>
+                      <div class="hero-services-mini-card" role="listitem">
+                        <div class="service-item">
+                          <div class="circle" aria-hidden="true"><span aria-hidden="true">🧱</span></div>
+                          <span>Hardwood &amp; Laminate</span>
+                        </div>
+                        <p class="hero-services-mini-card__desc">High-quality materials built to last</p>
                       </div>
-                      <div class="hero-unified-pill" role="listitem">
-                        <span class="hero-unified-pill__icon" aria-hidden="true">💧</span>
-                        <span>Vinyl &amp; Waterproof</span>
+                      <div class="hero-services-mini-card" role="listitem">
+                        <div class="service-item">
+                          <div class="circle" aria-hidden="true"><span aria-hidden="true">🧱</span></div>
+                          <span>Vinyl &amp; Waterproof</span>
+                        </div>
+                        <p class="hero-services-mini-card__desc">Durable and moisture-resistant floors</p>
                       </div>
-                      <div class="hero-unified-pill" role="listitem">
-                        <span class="hero-unified-pill__icon" aria-hidden="true">🔧</span>
-                        <span>Repairs &amp; Refinishing</span>
+                      <div class="hero-services-mini-card" role="listitem">
+                        <div class="service-item">
+                          <div class="circle" aria-hidden="true"><span aria-hidden="true">🧰</span></div>
+                          <span>Repairs &amp; Refinishing</span>
+                        </div>
+                        <p class="hero-services-mini-card__desc">Restore beauty and extend lifespan</p>
                       </div>
                     </div>
-                    <div class="hero-unified-ctas mt-8 flex w-full flex-col items-center gap-3 sm:mt-9">
+                    <div class="hero-unified-ctas hero-services-cta-wrap mt-8 flex w-full flex-col items-center sm:mt-9">
                       <a
                         href="services.html"
-                        class="hero-unified-btn-primary inline-flex min-h-[48px] w-full max-w-[min(100%,20rem)] shrink-0 items-center justify-center gap-1 rounded-full px-9 py-3.5 text-base font-semibold sm:w-auto sm:max-w-none sm:min-w-[230px]"
-                        >View Services <span aria-hidden="true">→</span></a
+                        class="hero-unified-btn-primary hero-unified-btn-primary--slide-services inline-flex shrink-0 items-center justify-center gap-1 font-semibold"
+                        >Explore Services <span aria-hidden="true">→</span></a
                       >
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- Slide 3: conversion -->
-            <div class="swiper-slide hero-unified-slide">
+            <!-- Slide 3: conversion CTA -->
+            <div class="swiper-slide hero-unified-slide hero-slide--conversion">
               <div class="relative flex hero-slide-shell flex-col overflow-hidden">
                 <div class="pointer-events-none absolute inset-0 z-0">
                   <img
@@ -329,34 +325,28 @@
                     decoding="async"
                   />
                   <div class="hero-gradient absolute inset-0 z-[1]"></div>
-                  <div class="grain-overlay absolute inset-0 z-[2] opacity-[0.04]" aria-hidden="true"></div>
+                  <div class="grain-overlay absolute inset-0 z-[2] opacity-[0.022]" aria-hidden="true"></div>
                 </div>
                 <div
                   class="hero-unified-front relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center px-4 py-6 pb-[calc(3.75rem+env(safe-area-inset-bottom,0px))] text-center sm:px-6 sm:py-8 sm:pb-[calc(4.25rem+env(safe-area-inset-bottom,0px))] lg:px-8"
                 >
-                  <div class="hero-unified-inner mx-auto flex w-full max-w-3xl flex-col items-center">
+                  <div
+                    class="hero-unified-inner hero-unified-inner--conversion mx-auto flex w-full max-w-3xl flex-col items-center text-balance text-center"
+                  >
                     <h2 class="hero-unified-title font-display font-bold tracking-tight">
                       <span class="hero-unified-title__white">Ready to </span><span class="hero-unified-title__gold">upgrade</span><span class="hero-unified-title__white"> your floors?</span>
                     </h2>
-                    <p class="hero-unified-sub mx-auto mt-4 max-w-xl text-balance sm:mt-5">
-                      Fast quotes, professional work, and results that last.
-                    </p>
-                    <div class="hero-unified-highlight">
-                      <span class="hero-unified-highlight__star" aria-hidden="true">⭐</span>
+                    <div class="hero-unified-highlight hero-unified-highlight--conversion-badge">
                       <p class="hero-unified-highlight__text">
-                        <span class="sr-only">Five star rating.</span>5.0 rating • 120+ happy clients
+                        <span class="sr-only">Five star rating. </span><span aria-hidden="true">⭐ </span>5.0 rating • 120+
+                        happy clients
                       </p>
                     </div>
-                    <div class="hero-unified-ctas mt-8 flex w-full flex-col items-center gap-3 sm:mt-9">
+                    <div class="hero-unified-ctas flex w-full flex-col items-stretch gap-3">
                       <a
                         href="tel:+12035263516"
-                        class="hero-unified-btn-phone inline-flex min-h-[52px] w-full max-w-[min(100%,22rem)] shrink-0 items-center justify-center rounded-full px-6 py-3.5 text-center text-base font-bold leading-snug sm:w-auto sm:max-w-none sm:min-w-[260px] sm:px-8 sm:text-lg"
-                        >Call Now: (203) 526-3516</a
-                      >
-                      <a
-                        href="contact.html"
-                        class="hero-unified-link-secondary text-sm font-semibold text-white/95 underline decoration-white/50 underline-offset-[0.35rem] transition hover:text-gold hover:decoration-gold sm:text-base"
-                        >Or get your free estimate online</a
+                        class="hero-unified-btn-phone hero-unified-btn-phone--conversion-slide inline-flex w-full shrink-0 min-h-[48px] items-center justify-center rounded-full px-5 py-4 text-center text-base font-bold leading-snug sm:min-h-[52px] sm:text-lg"
+                        >Call now: (203) 526-3516</a
                       >
                     </div>
                   </div>
@@ -817,37 +807,37 @@
             <h2 id="milestones-heading" class="sr-only">Company milestones</h2>
             <div class="stats-metric-stack max-w-none text-left">
               <div class="stats-metric-block border-t border-[#dfe2e9] pb-10 pt-8 first:border-t-0 first:pt-0">
-                <p class="stats-metric-num font-display font-bold tracking-tight text-[#cf2c2e]">
+                <p class="stats-metric-num font-display font-bold tracking-tight text-gold">
                   <span class="tabular-nums tracking-tight" aria-hidden="true">
-                    <span class="stats-count-num" data-count-to="15" data-variant="suffix">0</span
+                    <span class="stats-count-num" data-count-to="26" data-variant="suffix">0</span
                     ><span class="stats-metric-plus">+</span></span
-                  ><span class="sr-only stats-count-sr" data-final="15+" data-label="years">15+, Years Experience</span>
+                  ><span class="sr-only stats-count-sr" data-final="26+" data-label="years">26+, Years Experience</span>
                 </p>
-                <p class="stats-metric-label mt-3 text-[0.975rem] font-medium tracking-tight text-[#111827] lg:text-[1rem]">
+                <p class="stats-metric-label mt-3 text-[0.975rem] font-medium leading-snug tracking-tight text-slate-700 lg:text-[1rem]">
                   Years Experience
                 </p>
               </div>
 
               <div class="stats-metric-block border-t border-[#dfe2e9] pb-10 pt-8">
-                <p class="stats-metric-num font-display font-bold tracking-tight text-[#cf2c2e]">
+                <p class="stats-metric-num font-display font-bold tracking-tight text-gold">
                   <span class="tabular-nums tracking-tight" aria-hidden="true">
-                    <span class="stats-count-num" data-count-to="500" data-variant="suffix">0</span
+                    <span class="stats-count-num" data-count-to="5000" data-variant="suffix">0</span
                     ><span class="stats-metric-plus">+</span></span
-                  ><span class="sr-only stats-count-sr" data-final="500+" data-label="projects">500+, Projects Completed</span>
+                  ><span class="sr-only stats-count-sr" data-final="5000+" data-label="projects">5000+, Projects Completed</span>
                 </p>
-                <p class="stats-metric-label mt-3 text-[0.975rem] font-medium tracking-tight text-[#111827] lg:text-[1rem]">
+                <p class="stats-metric-label mt-3 text-[0.975rem] font-medium leading-snug tracking-tight text-slate-700 lg:text-[1rem]">
                   Projects Completed
                 </p>
               </div>
 
               <div class="stats-metric-block border-t border-[#dfe2e9] pt-8">
-                <p class="stats-metric-num font-display font-bold tracking-tight text-[#cf2c2e]">
+                <p class="stats-metric-num font-display font-bold tracking-tight text-gold">
                   <span class="tabular-nums tracking-tight" aria-hidden="true">
                     <span class="stats-count-num" data-count-to="100" data-variant="percent">0</span
                     ><span class="stats-percent-symbol">%</span></span
                   ><span class="sr-only stats-count-sr" data-final="100%" data-label="licensed">100%, Licensed and Insured</span>
                 </p>
-                <p class="stats-metric-label mt-3 text-[0.975rem] font-medium tracking-tight text-[#111827] lg:text-[1rem]">
+                <p class="stats-metric-label mt-3 text-[0.975rem] font-medium leading-snug tracking-tight text-slate-700 lg:text-[1rem]">
                   Licensed &amp; Insured
                 </p>
               </div>
@@ -1544,8 +1534,11 @@
       </div>
 
       <div class="footer-bottom border-t border-slate-900/12 bg-[#0f2847] text-slate-300">
+        <p class="site-footer-license mx-auto max-w-7xl px-4 pt-3 text-center text-[0.6875rem] leading-snug text-slate-500 sm:px-6 sm:pt-3.5 lg:px-10">
+          HIC License #0704691
+        </p>
         <div
-          class="mx-auto flex max-w-7xl flex-col items-center gap-3 px-4 py-3.5 sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:px-6 sm:py-3 lg:px-10"
+          class="mx-auto flex max-w-7xl flex-col items-center gap-3 px-4 py-3.5 pt-2 sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:px-6 sm:py-3 sm:pt-3 lg:px-10"
         >
           <p
             class="w-full max-w-xl text-center text-[0.875rem] leading-relaxed text-slate-400 sm:mx-0 sm:w-auto sm:max-w-none sm:flex-1 sm:text-left sm:text-sm"
