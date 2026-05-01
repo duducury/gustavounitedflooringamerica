@@ -219,13 +219,21 @@
               </div>
               <h2 id="contact-quote-heading" class="font-display text-2xl font-bold text-navy">Request a quote</h2>
               <p class="mt-2 hidden text-sm leading-relaxed text-slate-600 lg:block">
-                Submitting opens your email app to unitedflooringamerica@gmail.com with your message pre-filled (no server — add your
-                hosting form later if you prefer).
+                Send your request securely — we get it by email and reply as soon as we can (or call us for the fastest
+                answer).
               </p>
               <p class="mt-2 text-sm leading-relaxed text-slate-600 lg:hidden">
-                Opens your email app with your message — fill in the fields below.
+                We receive this by email. For the fastest reply, tap Call Now above.
               </p>
-              <form id="contact-form" class="contact-form__form mt-7 space-y-6" action="#" method="post" novalidate>
+              <!-- Email delivery: create a free key at https://web3forms.com (use unitedflooringamerica@gmail.com) and paste it in data-web3forms-key below. If empty, the form opens your visitor’s mail app instead. -->
+              <form
+                id="contact-form"
+                class="contact-form__form mt-7 space-y-6"
+                action="#"
+                method="post"
+                novalidate
+                data-web3forms-key=""
+              >
                 <div>
                   <label class="block text-sm font-medium text-slate-700" for="name">Name</label>
                   <input
@@ -272,7 +280,8 @@
                     class="contact-form__input contact-form__textarea mt-2.5 w-full resize-y text-slate-900 shadow-sm"
                   ></textarea>
                 </div>
-                <button type="submit" class="contact-form-submit">Get Free Estimate →</button>
+                <button type="submit" class="contact-form-submit" id="contact-form-submit">Get Free Estimate →</button>
+                <p id="contact-form-feedback" class="contact-form-feedback" role="status" aria-live="polite" hidden></p>
               </form>
             </div>
           </div>

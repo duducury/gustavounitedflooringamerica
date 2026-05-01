@@ -2821,6 +2821,34 @@ body.contact-page .contact-form__input:focus {
   outline-offset: 3px;
 }
 
+.contact-form-submit:disabled {
+  cursor: wait;
+  opacity: 0.88;
+  transform: none;
+  filter: none;
+}
+
+.contact-form-feedback {
+  margin-top: 0.5rem;
+  border-radius: 0.75rem;
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.contact-form-feedback--success {
+  color: rgb(6 78 59);
+  background: rgb(236 253 245);
+  border: 1px solid rgb(167 243 208);
+}
+
+.contact-form-feedback--error {
+  color: rgb(127 29 29);
+  background: rgb(254 242 242);
+  border: 1px solid rgb(252 165 165);
+}
+
 .contact-map-shell {
   position: relative;
   border-radius: 20px;
