@@ -36,7 +36,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -60,6 +60,7 @@
             fontFamily: {
               sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
               display: ["Outfit", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+              quote: ['"Cormorant Garamond"', "Georgia", "ui-serif", "serif"],
             },
           },
         },
@@ -116,17 +117,26 @@
       class="fixed inset-x-0 top-0 z-[100] border-b border-slate-200/80 bg-white transition-shadow duration-300"
     >
       <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
-        <a href="index.html" class="flex min-w-0 items-center gap-2 sm:gap-3">
-          <img
-            src="images/unitedflooringamerica/logo.jpg"
-            alt="United Flooring America — Connecticut flooring installation company"
-            class="h-10 max-h-[52px] w-auto max-w-[min(92vw,260px)] shrink-0 object-contain object-left sm:h-12 sm:max-h-[56px]"
-            width="260"
-            height="70"
-            decoding="async"
-            fetchpriority="high"
-          />
-        </a>
+        <div class="flex min-w-0 items-center gap-2 sm:gap-3">
+          <a href="index.html" class="flex min-w-0 shrink-0 items-center">
+            <img
+              src="images/unitedflooringamerica/logo.jpg"
+              alt="United Flooring America — Connecticut flooring installation company"
+              class="h-10 max-h-[52px] w-auto max-w-[min(92vw,260px)] shrink-0 object-contain object-left sm:h-12 sm:max-h-[56px]"
+              width="260"
+              height="70"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </a>
+          <a
+            href="tel:+12035263516"
+            class="min-w-0 border-l border-slate-200 pl-2 text-xs font-bold tabular-nums tracking-tight text-navy underline-offset-2 hover:text-gold-600 hover:underline sm:pl-3 sm:text-sm md:text-base"
+            title="Call United Flooring America"
+          >
+            (203) 526-3516
+          </a>
+        </div>
         <nav class="hidden items-center gap-8 text-sm font-medium text-slate-700 md:flex" aria-label="Primary">
           <a href="index.html" class="text-navy underline-offset-4 hover:underline">Home</a>
           <a href="about.html" class="transition hover:text-navy">About</a>
@@ -135,11 +145,6 @@
           <a href="contact.html" class="transition hover:text-navy">Contact</a>
         </nav>
         <div class="flex items-center gap-2 md:gap-3">
-          <a
-            href="tel:+12035263516"
-            class="hidden text-sm font-semibold text-navy lg:inline"
-            >(203) 526-3516</a
-          >
           <a
             href="mailto:unitedflooringamerica@gmail.com"
             class="hidden text-sm font-semibold text-navy hover:text-gold-600 xl:inline"
@@ -384,155 +389,386 @@
         </div>
       </section>
 
-      <!-- Services -->
-      <section id="services" class="scroll-mt-28 py-20 sm:py-24">
-        <div class="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
-          <div class="fade-in-section mx-auto max-w-2xl text-center">
-            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">What We Install</p>
-            <h2 class="font-display mt-3 text-3xl font-bold tracking-tight text-navy sm:text-4xl">
+      <!-- Services — card carousel -->
+      <section
+        id="services"
+        class="scroll-mt-28 border-y border-white/10 bg-gradient-to-b from-navy via-[#0f2847] to-navy-800 py-16 text-white sm:py-20 lg:py-24"
+        aria-labelledby="services-heading"
+      >
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="fade-in-section mx-auto max-w-2xl text-center lg:max-w-3xl">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold">What We Install</p>
+            <h2 id="services-heading" class="font-display mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
               Flooring Installation &amp; Design
             </h2>
-            <p class="mt-4 text-base text-slate-600">
+            <p class="mt-4 text-base leading-relaxed text-slate-300 sm:text-lg">
               From timeless hardwood to durable vinyl, we pair premium materials with precision installation —
-              flooring installation near you that is built for real life.
-              <a href="services.html" class="font-semibold text-navy underline-offset-4 hover:text-gold-600 hover:underline"
+              flooring built for real life.
+              <a
+                href="services.html"
+                class="font-semibold text-gold underline-offset-4 transition hover:text-gold-600 hover:underline"
                 >Explore our flooring services</a
               >.
             </p>
           </div>
 
-          <div class="fade-in-section mx-auto mt-10 grid max-w-7xl grid-cols-2 gap-3 gap-y-4 sm:mt-14 sm:grid-cols-4 sm:gap-5 lg:gap-8">
+          <div class="fade-in-section mt-8 flex justify-center sm:mt-10">
             <a
-              href="services.html#hardwood-installation"
-              class="fade-in-section block min-h-0 min-w-0 rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+              href="services.html"
+              class="inline-flex items-center gap-2 rounded-full border border-gold/70 bg-navy-800/90 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-black/20 transition hover:border-gold hover:bg-navy-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
             >
-            <article
-              class="service-install-card group flex h-full min-h-0 min-w-0 flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition [--card-art-h:clamp(4.25rem,22vw,5.5rem)] hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-[0_12px_28px_-16px_rgba(15,40,71,0.2)] sm:rounded-2xl sm:shadow-[0_4px_24px_-12px_rgba(15,40,71,0.15)] sm:hover:-translate-y-1 sm:hover:shadow-[0_20px_40px_-24px_rgba(15,40,71,0.25)]"
-            >
-              <div
-                class="relative flex h-[var(--card-art-h)] shrink-0 items-center justify-center overflow-hidden bg-slate-100 sm:h-auto sm:aspect-[4/3]"
-              >
-                <img
-                  src="images/unitedflooringamerica/instal1.png"
-                  alt="Hardwood floor installation in Connecticut"
-                  class="h-full w-full object-contain p-1.5 transition duration-300 group-hover:scale-[1.03] sm:object-cover sm:p-0"
-                  width="640"
-                  height="480"
-                  loading="lazy"
-                  decoding="async"
+              View all services
+              <svg class="h-4 w-4 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M7 17L17 7M17 7H9M17 7V15"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 />
-              </div>
-              <div class="flex flex-1 flex-col px-2 pb-2 pt-1.5 sm:p-8">
-                <h3
-                  class="text-center font-display text-[clamp(0.62rem,2.85vw,0.72rem)] font-bold uppercase leading-[1.2] tracking-tight text-navy sm:normal-case sm:text-lg sm:font-semibold sm:tracking-normal sm:leading-snug lg:text-xl"
-                >
-                  Hardwood Flooring
-                </h3>
-                <p class="mt-3 hidden text-sm leading-relaxed text-slate-600 sm:mt-3 sm:block">
-                  Classic warmth and long-term home value — installed with expert leveling and finishing.
-                </p>
-              </div>
-            </article>
+              </svg>
             </a>
+          </div>
 
-            <a
-              href="services.html#vinyl-flooring"
-              class="fade-in-section block min-h-0 min-w-0 rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+          <div
+            class="fade-in-section services-cards-carousel-wrap relative mx-auto mt-10 max-w-6xl sm:mt-12 lg:mt-14 lg:max-w-none"
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Flooring services"
+          >
+            <div
+              class="swiper services-cards-swiper !overflow-visible pb-12 sm:pb-14"
+              id="services-cards-swiper"
             >
-            <article
-              class="service-install-card group flex h-full min-h-0 min-w-0 flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition [--card-art-h:clamp(4.25rem,22vw,5.5rem)] hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-[0_12px_28px_-16px_rgba(15,40,71,0.2)] sm:rounded-2xl sm:shadow-[0_4px_24px_-12px_rgba(15,40,71,0.15)] sm:hover:-translate-y-1 sm:hover:shadow-[0_20px_40px_-24px_rgba(15,40,71,0.25)]"
-            >
+              <div class="swiper-wrapper">
+                <div class="swiper-slide !h-auto">
+                  <a
+                    href="services.html#hardwood-installation"
+                    class="group service-carousel-card-link flex h-full min-h-0 min-w-0 flex-col focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                  >
+                    <article
+                      class="service-carousel-card flex h-full min-h-0 flex-col overflow-hidden rounded-[1.65rem] border border-white/15 bg-[#f2ede4] p-4 pb-6 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.5)] transition duration-300 ease-out group-hover:-translate-y-1 sm:rounded-[1.85rem] sm:p-5 sm:pb-7"
+                    >
+                      <div class="relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-200/90">
+                        <img
+                          src="images/unitedflooringamerica/instal1.png"
+                          alt="Hardwood floor installation in Connecticut — United Flooring America"
+                          class="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.04]"
+                          width="800"
+                          height="600"
+                          loading="lazy"
+                          decoding="async"
+                          draggable="false"
+                        />
+                      </div>
+                      <h3 class="font-display mt-5 text-center text-xl font-semibold leading-snug text-navy sm:mt-6 sm:text-2xl">
+                        Hardwood Installation
+                      </h3>
+                      <p class="mt-3 flex-1 text-center text-sm leading-relaxed text-slate-600 sm:text-[0.9375rem]">
+                        Premium hardwood flooring installed with precision, stability, and long-term durability. Designed to
+                        elevate your home with a timeless, high-end finish.
+                      </p>
+                      <div class="mt-5 flex justify-center sm:mt-6">
+                        <span
+                          class="inline-flex items-center gap-2 rounded-full border border-gold bg-navy px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition group-hover:border-gold-600 group-hover:bg-navy-800"
+                        >
+                          Learn more
+                          <svg class="h-4 w-4 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path
+                              d="M7 17L17 7M17 7H9M17 7V15"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </article>
+                  </a>
+                </div>
+                <div class="swiper-slide !h-auto">
+                  <a
+                    href="contact.html"
+                    class="group service-carousel-card-link flex h-full min-h-0 min-w-0 flex-col focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                  >
+                    <article
+                      class="service-carousel-card flex h-full min-h-0 flex-col overflow-hidden rounded-[1.65rem] border border-white/15 bg-[#f2ede4] p-4 pb-6 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.5)] transition duration-300 ease-out group-hover:-translate-y-1 sm:rounded-[1.85rem] sm:p-5 sm:pb-7"
+                    >
+                      <div class="relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-200/90">
+                        <img
+                          src="images/unitedflooringamerica/instal2.png"
+                          alt="Hardwood floor refinishing contractor Connecticut"
+                          class="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.04]"
+                          width="800"
+                          height="600"
+                          loading="lazy"
+                          decoding="async"
+                          draggable="false"
+                        />
+                      </div>
+                      <h3 class="font-display mt-5 text-center text-xl font-semibold leading-snug text-navy sm:mt-6 sm:text-2xl">
+                        Hardwood Refinishing
+                      </h3>
+                      <p class="mt-3 flex-1 text-center text-sm leading-relaxed text-slate-600 sm:text-[0.9375rem]">
+                        Restore the natural beauty of your floors with professional sanding and finishing. Remove wear,
+                        scratches, and bring back a like-new appearance.
+                      </p>
+                      <div class="mt-5 flex justify-center sm:mt-6">
+                        <span
+                          class="inline-flex items-center gap-2 rounded-full border border-gold bg-navy px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition group-hover:border-gold-600 group-hover:bg-navy-800"
+                        >
+                          Get quote
+                          <svg class="h-4 w-4 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path
+                              d="M7 17L17 7M17 7H9M17 7V15"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </article>
+                  </a>
+                </div>
+                <div class="swiper-slide !h-auto">
+                  <a
+                    href="services.html#hardwood-repair"
+                    class="group service-carousel-card-link flex h-full min-h-0 min-w-0 flex-col focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                  >
+                    <article
+                      class="service-carousel-card flex h-full min-h-0 flex-col overflow-hidden rounded-[1.65rem] border border-white/15 bg-[#f2ede4] p-4 pb-6 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.5)] transition duration-300 ease-out group-hover:-translate-y-1 sm:rounded-[1.85rem] sm:p-5 sm:pb-7"
+                    >
+                      <div class="relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-200/90">
+                        <img
+                          src="images/unitedflooringamerica/instal3.png"
+                          alt="Hardwood floor repair and restoration CT"
+                          class="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.04]"
+                          width="800"
+                          height="600"
+                          loading="lazy"
+                          decoding="async"
+                          draggable="false"
+                        />
+                      </div>
+                      <h3 class="font-display mt-5 text-center text-xl font-semibold leading-snug text-navy sm:mt-6 sm:text-2xl">
+                        Hardwood Repair
+                      </h3>
+                      <p class="mt-3 flex-1 text-center text-sm leading-relaxed text-slate-600 sm:text-[0.9375rem]">
+                        Seamless repairs that fix damaged or worn areas while matching your existing floor perfectly. Strength,
+                        beauty, and durability restored.
+                      </p>
+                      <div class="mt-5 flex justify-center sm:mt-6">
+                        <span
+                          class="inline-flex items-center gap-2 rounded-full border border-gold bg-navy px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition group-hover:border-gold-600 group-hover:bg-navy-800"
+                        >
+                          Learn more
+                          <svg class="h-4 w-4 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path
+                              d="M7 17L17 7M17 7H9M17 7V15"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </article>
+                  </a>
+                </div>
+                <div class="swiper-slide !h-auto">
+                  <a
+                    href="contact.html"
+                    class="group service-carousel-card-link flex h-full min-h-0 min-w-0 flex-col focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                  >
+                    <article
+                      class="service-carousel-card flex h-full min-h-0 flex-col overflow-hidden rounded-[1.65rem] border border-white/15 bg-[#f2ede4] p-4 pb-6 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.5)] transition duration-300 ease-out group-hover:-translate-y-1 sm:rounded-[1.85rem] sm:p-5 sm:pb-7"
+                    >
+                      <div class="relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-200/90">
+                        <img
+                          src="images/unitedflooringamerica/instal4.png"
+                          alt="Vinyl plank waterproof flooring installation Connecticut"
+                          class="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.04]"
+                          width="800"
+                          height="600"
+                          loading="lazy"
+                          decoding="async"
+                          draggable="false"
+                        />
+                      </div>
+                      <h3 class="font-display mt-5 text-center text-xl font-semibold leading-snug text-navy sm:mt-6 sm:text-2xl">
+                        Vinyl Flooring
+                      </h3>
+                      <p class="mt-3 flex-1 text-center text-sm leading-relaxed text-slate-600 sm:text-[0.9375rem]">
+                        Modern waterproof flooring built for real life. Durable, low-maintenance, and perfect for kitchens,
+                        bathrooms, and busy households.
+                      </p>
+                      <div class="mt-5 flex justify-center sm:mt-6">
+                        <span
+                          class="inline-flex items-center gap-2 rounded-full border border-gold bg-navy px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition group-hover:border-gold-600 group-hover:bg-navy-800"
+                        >
+                          Get quote
+                          <svg class="h-4 w-4 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path
+                              d="M7 17L17 7M17 7H9M17 7V15"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </article>
+                  </a>
+                </div>
+                <div class="swiper-slide !h-auto">
+                  <a
+                    href="services.html#laminate-flooring"
+                    class="group service-carousel-card-link flex h-full min-h-0 min-w-0 flex-col focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                  >
+                    <article
+                      class="service-carousel-card flex h-full min-h-0 flex-col overflow-hidden rounded-[1.65rem] border border-white/15 bg-[#f2ede4] p-4 pb-6 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.5)] transition duration-300 ease-out group-hover:-translate-y-1 sm:rounded-[1.85rem] sm:p-5 sm:pb-7"
+                    >
+                      <div class="relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-200/90">
+                        <img
+                          src="images/unitedflooringamerica/instal5.png"
+                          alt="Laminate flooring living room installation Connecticut"
+                          class="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.04]"
+                          width="800"
+                          height="600"
+                          loading="lazy"
+                          decoding="async"
+                          draggable="false"
+                        />
+                      </div>
+                      <h3 class="font-display mt-5 text-center text-xl font-semibold leading-snug text-navy sm:mt-6 sm:text-2xl">
+                        Laminate Flooring
+                      </h3>
+                      <p class="mt-3 flex-1 text-center text-sm leading-relaxed text-slate-600 sm:text-[0.9375rem]">
+                        Get the look of real wood with added durability and easy maintenance. A cost-effective solution built for
+                        everyday use.
+                      </p>
+                      <div class="mt-5 flex justify-center sm:mt-6">
+                        <span
+                          class="inline-flex items-center gap-2 rounded-full border border-gold bg-navy px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition group-hover:border-gold-600 group-hover:bg-navy-800"
+                        >
+                          Learn more
+                          <svg class="h-4 w-4 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path
+                              d="M7 17L17 7M17 7H9M17 7V15"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </article>
+                  </a>
+                </div>
+                <div class="swiper-slide !h-auto">
+                  <a
+                    href="contact.html"
+                    class="group service-carousel-card-link flex h-full min-h-0 min-w-0 flex-col focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                  >
+                    <article
+                      class="service-carousel-card flex h-full min-h-0 flex-col overflow-hidden rounded-[1.65rem] border border-white/15 bg-[#f2ede4] p-4 pb-6 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.5)] transition duration-300 ease-out group-hover:-translate-y-1 sm:rounded-[1.85rem] sm:p-5 sm:pb-7"
+                    >
+                      <div class="relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-200/90">
+                        <img
+                          src="images/unitedflooringamerica/instal6.png"
+                          alt="VCT tile flooring commercial space Connecticut"
+                          class="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.04]"
+                          width="800"
+                          height="600"
+                          loading="lazy"
+                          decoding="async"
+                          draggable="false"
+                        />
+                      </div>
+                      <h3 class="font-display mt-5 text-center text-xl font-semibold leading-snug text-navy sm:mt-6 sm:text-2xl">
+                        VCT Flooring
+                      </h3>
+                      <p class="mt-3 flex-1 text-center text-sm leading-relaxed text-slate-600 sm:text-[0.9375rem]">
+                        Reliable, high-performance flooring designed for commercial spaces. Built to handle heavy traffic while
+                        staying easy to maintain.
+                      </p>
+                      <div class="mt-5 flex justify-center sm:mt-6">
+                        <span
+                          class="inline-flex items-center gap-2 rounded-full border border-gold bg-navy px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition group-hover:border-gold-600 group-hover:bg-navy-800"
+                        >
+                          Get quote
+                          <svg class="h-4 w-4 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path
+                              d="M7 17L17 7M17 7H9M17 7V15"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </article>
+                  </a>
+                </div>
+                <div class="swiper-slide !h-auto">
+                  <a
+                    href="services.html#custom-flooring-design"
+                    class="group service-carousel-card-link flex h-full min-h-0 min-w-0 flex-col focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+                  >
+                    <article
+                      class="service-carousel-card flex h-full min-h-0 flex-col overflow-hidden rounded-[1.65rem] border border-white/15 bg-[#f2ede4] p-4 pb-6 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.5)] transition duration-300 ease-out group-hover:-translate-y-1 sm:rounded-[1.85rem] sm:p-5 sm:pb-7"
+                    >
+                      <div class="relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-200/90">
+                        <img
+                          src="images/unitedflooringamerica/instal7.png"
+                          alt="Custom flooring design and installation Connecticut"
+                          class="h-full w-full object-cover transition duration-500 ease-out group-hover:scale-[1.04]"
+                          width="800"
+                          height="600"
+                          loading="lazy"
+                          decoding="async"
+                          draggable="false"
+                        />
+                      </div>
+                      <h3 class="font-display mt-5 text-center text-xl font-semibold leading-snug text-navy sm:mt-6 sm:text-2xl">
+                        Custom Flooring Design
+                      </h3>
+                      <p class="mt-3 flex-1 text-center text-sm leading-relaxed text-slate-600 sm:text-[0.9375rem]">
+                        Custom-designed flooring solutions tailored to your space, style, and vision. Unique layouts that combine
+                        functionality with standout design.
+                      </p>
+                      <div class="mt-5 flex justify-center sm:mt-6">
+                        <span
+                          class="inline-flex items-center gap-2 rounded-full border border-gold bg-navy px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition group-hover:border-gold-600 group-hover:bg-navy-800"
+                        >
+                          Learn more
+                          <svg class="h-4 w-4 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path
+                              d="M7 17L17 7M17 7H9M17 7V15"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </article>
+                  </a>
+                </div>
+              </div>
               <div
-                class="relative flex h-[var(--card-art-h)] shrink-0 items-center justify-center overflow-hidden bg-slate-100 sm:h-auto sm:aspect-[4/3]"
-              >
-                <img
-                  src="images/unitedflooringamerica/instal4.png"
-                  alt="Waterproof vinyl plank flooring kitchen installation CT"
-                  class="h-full w-full object-contain p-1.5 transition duration-300 group-hover:scale-[1.03] sm:object-cover sm:p-0"
-                  width="640"
-                  height="480"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div class="flex flex-1 flex-col px-2 pb-2 pt-1.5 sm:p-8">
-                <h3
-                  class="text-center font-display text-[clamp(0.62rem,2.85vw,0.72rem)] font-bold uppercase leading-[1.2] tracking-tight text-navy sm:normal-case sm:text-lg sm:font-semibold sm:tracking-normal sm:leading-snug lg:text-xl"
-                >
-                  Vinyl Flooring
-                </h3>
-                <p class="mt-3 hidden text-sm leading-relaxed text-slate-600 sm:mt-3 sm:block">
-                  Water-ready luxury vinyl planks ideal for kitchens, baths, and busy households.
-                </p>
-              </div>
-            </article>
-            </a>
-
-            <a
-              href="services.html#laminate-flooring"
-              class="fade-in-section block min-h-0 min-w-0 rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
-            >
-            <article
-              class="service-install-card group flex h-full min-h-0 min-w-0 flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition [--card-art-h:clamp(4.25rem,22vw,5.5rem)] hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-[0_12px_28px_-16px_rgba(15,40,71,0.2)] sm:rounded-2xl sm:shadow-[0_4px_24px_-12px_rgba(15,40,71,0.15)] sm:hover:-translate-y-1 sm:hover:shadow-[0_20px_40px_-24px_rgba(15,40,71,0.25)]"
-            >
-              <div
-                class="relative flex h-[var(--card-art-h)] shrink-0 items-center justify-center overflow-hidden bg-slate-100 sm:h-auto sm:aspect-[4/3]"
-              >
-                <img
-                  src="images/unitedflooringamerica/instal5.png"
-                  alt="Laminate flooring living room installation Connecticut"
-                  class="h-full w-full object-contain p-1.5 transition duration-300 group-hover:scale-[1.03] sm:object-cover sm:p-0"
-                  width="640"
-                  height="480"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div class="flex flex-1 flex-col px-2 pb-2 pt-1.5 sm:p-8">
-                <h3
-                  class="text-center font-display text-[clamp(0.62rem,2.85vw,0.72rem)] font-bold uppercase leading-[1.2] tracking-tight text-navy sm:normal-case sm:text-lg sm:font-semibold sm:tracking-normal sm:leading-snug lg:text-xl"
-                >
-                  Laminate Flooring
-                </h3>
-                <p class="mt-3 hidden text-sm leading-relaxed text-slate-600 sm:mt-3 sm:block">
-                  Beautiful wood looks with scratch resistance and easy care — perfect for family spaces.
-                </p>
-              </div>
-            </article>
-            </a>
-
-            <a
-              href="services.html#custom-flooring-design"
-              class="fade-in-section block min-h-0 min-w-0 rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
-            >
-            <article
-              class="service-install-card group flex h-full min-h-0 min-w-0 flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition [--card-art-h:clamp(4.25rem,22vw,5.5rem)] hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-[0_12px_28px_-16px_rgba(15,40,71,0.2)] sm:rounded-2xl sm:shadow-[0_4px_24px_-12px_rgba(15,40,71,0.15)] sm:hover:-translate-y-1 sm:hover:shadow-[0_20px_40px_-24px_rgba(15,40,71,0.25)]"
-            >
-              <div
-                class="relative flex h-[var(--card-art-h)] shrink-0 items-center justify-center overflow-hidden bg-slate-100 sm:h-auto sm:aspect-[4/3]"
-              >
-                <img
-                  src="images/unitedflooringamerica/instal7.png"
-                  alt="Custom flooring design Connecticut home"
-                  class="h-full w-full object-contain p-1.5 transition duration-300 group-hover:scale-[1.03] sm:object-cover sm:p-0"
-                  width="640"
-                  height="480"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div class="flex flex-1 flex-col px-2 pb-2 pt-1.5 sm:p-8">
-                <h3
-                  class="text-center font-display text-[clamp(0.62rem,2.85vw,0.72rem)] font-bold uppercase leading-[1.2] tracking-tight text-navy sm:normal-case sm:text-lg sm:font-semibold sm:tracking-normal sm:leading-snug lg:text-xl"
-                >
-                  Custom Design
-                </h3>
-                <p class="mt-3 hidden text-sm leading-relaxed text-slate-600 sm:mt-3 sm:block">
-                  Unique flooring solutions tailored to your style, layout, and how you live day to day.
-                </p>
-              </div>
-            </article>
-            </a>
+                class="services-cards-pagination swiper-pagination !relative !bottom-0 mt-2 sm:mt-3"
+                aria-hidden="true"
+              ></div>
+            </div>
           </div>
         </div>
       </section>
@@ -615,18 +851,78 @@
       </section>
 
       <!-- Why Choose Us -->
-      <section class="border-y border-slate-200 bg-slate-50 py-16 sm:py-20">
+      <section
+        class="border-y border-white/10 bg-gradient-to-b from-navy via-[#0f2847] to-navy-800 py-16 text-white sm:py-20"
+      >
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="fade-in-section text-center">
-            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">Why Homeowners Choose Us</p>
-            <h2 class="font-display mt-3 text-3xl font-bold tracking-tight text-navy sm:text-4xl">Built on Trust &amp; Craft</h2>
+          <div class="fade-in-section mx-auto max-w-4xl text-center">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Craftsmanship in focus</p>
+            <h2 class="font-display mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl">
+              The difference professional installation makes
+            </h2>
+            <p class="mt-4 text-base leading-relaxed text-slate-300 sm:text-lg">
+              We approach every job with a relentless eye for detail — so the upgrade isn&apos;t a minor tweak, it&apos;s a transformation you can actually see and feel. Drag the slider to compare before and after: precise prep, premium materials, and workmanship that speaks for itself.
+            </p>
+            <div
+              class="ba-compare mx-auto mt-8 ring-1 ring-white/25 shadow-[0_24px_60px_-16px_rgba(0,0,0,0.55)] sm:mt-10"
+              id="home-ba-compare"
+              style="--ba-pos: 50%"
+              role="img"
+              aria-label="Before and after: drag sideways or use arrow keys to compare flooring renovation photos."
+              tabindex="0"
+            >
+              <img
+                class="ba-compare__img"
+                src="images/after.jpeg"
+                alt="Finished space after flooring installation"
+                width="1600"
+                height="1000"
+                loading="lazy"
+                draggable="false"
+              />
+              <div class="ba-compare__before-layer" aria-hidden="true">
+                <img
+                  class="ba-compare__img"
+                  src="images/before.jpeg"
+                  alt=""
+                  width="1600"
+                  height="1000"
+                  loading="lazy"
+                  draggable="false"
+                />
+              </div>
+              <div class="ba-compare__divider">
+                <span class="ba-compare__handle" aria-hidden="true">
+                  <svg class="ba-compare__handle-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M14 8l4 4-4 4M10 8l-4 4 4 4"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <span class="ba-compare__label ba-compare__label--before">Before</span>
+              <span class="ba-compare__label ba-compare__label--after">After</span>
+            </div>
+            <p class="mt-3 text-center text-xs text-slate-400 sm:text-sm">
+              Drag horizontally to explore — swipe works on phones and tablets.
+            </p>
           </div>
+
+          <div class="fade-in-section mt-10 text-center sm:mt-14">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Why Homeowners Choose Us</p>
+            <h2 class="font-display mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">Built on Trust &amp; Craft</h2>
+          </div>
+
           <div
             class="fade-in-section mx-auto mt-10 grid max-w-4xl grid-cols-2 gap-x-4 gap-y-8 sm:mx-0 sm:mt-14 sm:max-w-none sm:gap-x-8 sm:gap-y-10 lg:max-w-none lg:grid-cols-4 lg:gap-x-8 lg:gap-y-8"
           >
             <div class="min-w-0 text-center">
               <div
-                class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-gold/30 bg-white text-navy shadow-sm"
+                class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-gold/45 bg-white text-navy shadow-lg shadow-black/30"
                 aria-hidden="true"
               >
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
@@ -637,12 +933,12 @@
                   />
                 </svg>
               </div>
-              <h3 class="font-semibold text-navy">Licensed &amp; Insured</h3>
-              <p class="mt-2 text-sm text-slate-600">Full credentials and liability coverage on every job.</p>
+              <h3 class="font-semibold text-white">Licensed &amp; Insured</h3>
+              <p class="mt-2 text-sm text-slate-300">Full credentials and liability coverage on every job.</p>
             </div>
             <div class="min-w-0 text-center">
               <div
-                class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-gold/30 bg-white text-navy shadow-sm"
+                class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-gold/45 bg-white text-navy shadow-lg shadow-black/30"
                 aria-hidden="true"
               >
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
@@ -653,14 +949,14 @@
                   />
                 </svg>
               </div>
-              <h3 class="font-semibold text-navy">High-Quality Materials</h3>
-              <p class="mt-2 text-sm text-slate-600">
+              <h3 class="font-semibold text-white">High-Quality Materials</h3>
+              <p class="mt-2 text-sm text-slate-300">
                 Trusted suppliers and curated options for durability and timeless style.
               </p>
             </div>
             <div class="min-w-0 text-center">
               <div
-                class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-gold/30 bg-white text-navy shadow-sm"
+                class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-gold/45 bg-white text-navy shadow-lg shadow-black/30"
                 aria-hidden="true"
               >
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
@@ -671,22 +967,22 @@
                   />
                 </svg>
               </div>
-              <h3 class="font-semibold text-navy">Experienced Team</h3>
-              <p class="mt-2 text-sm text-slate-600">
+              <h3 class="font-semibold text-white">Experienced Team</h3>
+              <p class="mt-2 text-sm text-slate-300">
                 Seasoned installers who obsess over seams, transitions, and finish details.
               </p>
             </div>
             <div class="min-w-0 text-center">
               <div
-                class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-gold/30 bg-white text-navy shadow-sm"
+                class="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-gold/45 bg-white text-navy shadow-lg shadow-black/30"
                 aria-hidden="true"
               >
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 class="font-semibold text-navy">Fast Installation</h3>
-              <p class="mt-2 text-sm text-slate-600">
+              <h3 class="font-semibold text-white">Fast Installation</h3>
+              <p class="mt-2 text-sm text-slate-300">
                 Efficient scheduling and clear timelines so you can enjoy your floors sooner.
               </p>
             </div>
@@ -702,7 +998,7 @@
         <div
           class="fade-in-section fade-slide-up-stagger trust-stats-motion mx-auto grid max-w-7xl grid-cols-12 items-start gap-x-3 gap-y-8 px-3 sm:gap-x-6 sm:gap-y-10 sm:px-6 lg:gap-x-10 lg:gap-y-12 xl:gap-x-[3.25rem] xl:gap-y-14"
         >
-          <div class="relative col-span-7 min-w-0">
+          <div class="relative col-span-12 min-w-0 md:col-span-7">
 
               <div
                 id="trust-stats-gallery"
@@ -803,41 +1099,49 @@
               </div>
             </div>
 
-          <div class="trust-stats-metrics-col col-span-5 min-w-0">
+          <div class="trust-stats-metrics-col col-span-12 min-w-0 md:col-span-5 md:flex md:items-stretch">
             <h2 id="milestones-heading" class="sr-only">Company milestones</h2>
-            <div class="stats-metric-stack max-w-none text-left">
-              <div class="stats-metric-block border-t border-[#dfe2e9] pb-10 pt-8 first:border-t-0 first:pt-0">
+            <div
+              class="stats-metric-stack flex w-full flex-row divide-x divide-slate-200/90 rounded-2xl border border-slate-200/90 bg-white px-1.5 py-4 shadow-[0_10px_40px_-20px_rgba(15,40,71,0.16)] sm:px-3 sm:py-5 md:min-h-0 md:flex-1 md:self-stretch md:py-6"
+            >
+              <div class="stats-metric-block flex min-w-0 flex-1 flex-col items-center justify-center px-1 py-1 text-center sm:px-2.5">
                 <p class="stats-metric-num font-display font-bold tracking-tight text-gold">
                   <span class="tabular-nums tracking-tight" aria-hidden="true">
                     <span class="stats-count-num" data-count-to="26" data-variant="suffix">0</span
                     ><span class="stats-metric-plus">+</span></span
                   ><span class="sr-only stats-count-sr" data-final="26+" data-label="years">26+, Years Experience</span>
                 </p>
-                <p class="stats-metric-label mt-3 text-[0.975rem] font-medium leading-snug tracking-tight text-slate-700 lg:text-[1rem]">
+                <p
+                  class="stats-metric-label mt-1.5 text-[0.65rem] font-medium leading-snug tracking-tight text-slate-600 sm:mt-2 sm:text-xs md:text-[0.8125rem] lg:text-[0.875rem]"
+                >
                   Years Experience
                 </p>
               </div>
 
-              <div class="stats-metric-block border-t border-[#dfe2e9] pb-10 pt-8">
+              <div class="stats-metric-block flex min-w-0 flex-1 flex-col items-center justify-center px-1 py-1 text-center sm:px-2.5">
                 <p class="stats-metric-num font-display font-bold tracking-tight text-gold">
                   <span class="tabular-nums tracking-tight" aria-hidden="true">
                     <span class="stats-count-num" data-count-to="5000" data-variant="suffix">0</span
                     ><span class="stats-metric-plus">+</span></span
                   ><span class="sr-only stats-count-sr" data-final="5000+" data-label="projects">5000+, Projects Completed</span>
                 </p>
-                <p class="stats-metric-label mt-3 text-[0.975rem] font-medium leading-snug tracking-tight text-slate-700 lg:text-[1rem]">
+                <p
+                  class="stats-metric-label mt-1.5 text-[0.65rem] font-medium leading-snug tracking-tight text-slate-600 sm:mt-2 sm:text-xs md:text-[0.8125rem] lg:text-[0.875rem]"
+                >
                   Projects Completed
                 </p>
               </div>
 
-              <div class="stats-metric-block border-t border-[#dfe2e9] pt-8">
+              <div class="stats-metric-block flex min-w-0 flex-1 flex-col items-center justify-center px-1 py-1 text-center sm:px-2.5">
                 <p class="stats-metric-num font-display font-bold tracking-tight text-gold">
                   <span class="tabular-nums tracking-tight" aria-hidden="true">
                     <span class="stats-count-num" data-count-to="100" data-variant="percent">0</span
                     ><span class="stats-percent-symbol">%</span></span
                   ><span class="sr-only stats-count-sr" data-final="100%" data-label="licensed">100%, Licensed and Insured</span>
                 </p>
-                <p class="stats-metric-label mt-3 text-[0.975rem] font-medium leading-snug tracking-tight text-slate-700 lg:text-[1rem]">
+                <p
+                  class="stats-metric-label mt-1.5 text-[0.65rem] font-medium leading-snug tracking-tight text-slate-600 sm:mt-2 sm:text-xs md:text-[0.8125rem] lg:text-[0.875rem]"
+                >
                   Licensed &amp; Insured
                 </p>
               </div>
@@ -1249,38 +1553,193 @@
         </div>
       </section>
 
-      <!-- Conversion strip — planning / quote CTAs -->
-      <section id="next-steps" class="scroll-mt-28 border-t border-slate-200 bg-gradient-to-b from-white to-slate-50 py-16 sm:py-20">
-        <div class="fade-in-section mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">Planning your floors?</p>
-          <h2 class="font-display mt-3 text-2xl font-bold tracking-tight text-navy sm:text-3xl">Tell us about your space</h2>
-          <p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-600">
-            Share rooms, approximate square footage, and what you have in mind — we'll outline options and timing. No obligation; just straightforward guidance from our team.
-          </p>
-          <div class="mx-auto mt-10 flex max-w-xl flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4">
-            <a
-              href="contact.html"
-              class="inline-flex flex-1 items-center justify-center rounded-full bg-navy px-8 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-navy-800 sm:flex-none"
-              >Request a quote</a
-            >
-            <a
-              href="tel:+12035263516"
-              class="inline-flex flex-1 items-center justify-center rounded-full border border-slate-200 bg-white px-8 py-3.5 text-sm font-semibold text-navy shadow-sm transition hover:border-navy hover:bg-slate-50 sm:flex-none"
-              >Call (203) 526-3516</a
-            >
+      <!-- Request a quote — lead form -->
+      <section
+        id="next-steps"
+        class="home-quote-section scroll-mt-28 border-t border-slate-200 bg-navy py-14 sm:py-20"
+        aria-labelledby="home-quote-heading"
+      >
+        <div class="fade-in-section mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div
+            class="home-quote-card relative overflow-hidden rounded-[1.75rem] border border-white/25 shadow-2xl shadow-black/25 ring-1 ring-white/10"
+          >
+            <div class="pointer-events-none absolute inset-0 z-0">
+              <div
+                class="absolute inset-0 bg-cover bg-center"
+                style="background-image: url('images/unitedflooringamerica/baner0.1-hero.jpg')"
+                role="img"
+                aria-hidden="true"
+              ></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/82 to-amber-950/78 sm:to-[#6b4c20]/80"
+                aria-hidden="true"
+              ></div>
+            </div>
+
+            <div class="relative z-10 px-5 py-6 sm:px-8 sm:py-8 lg:px-12 lg:py-12">
+              <div class="flex flex-col gap-5 sm:gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
+                <div class="flex min-w-0 flex-1 flex-col items-center text-center lg:items-start lg:text-left">
+                  <div class="flex flex-col items-center gap-3 sm:flex-row sm:items-center sm:gap-4 lg:items-start">
+                    <img
+                      src="images/unitedflooringamerica/logo.jpg"
+                      alt=""
+                      width="120"
+                      height="52"
+                      decoding="async"
+                      class="h-12 w-auto max-w-[200px] rounded-lg bg-white/95 px-2 py-1 shadow-md ring-1 ring-white/40 sm:h-14"
+                    />
+                    <div class="min-w-0">
+                      <p class="font-display text-base font-semibold tracking-tight text-white sm:text-lg">
+                        United Flooring America
+                      </p>
+                      <p class="mt-0.5 text-xs text-white/80 sm:text-sm">Southwestern Connecticut</p>
+                    </div>
+                  </div>
+                  <p
+                    class="mt-5 inline-flex rounded-full bg-gold/90 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-navy sm:text-xs"
+                  >
+                    Free estimate
+                  </p>
+                  <h2
+                    id="home-quote-heading"
+                    class="font-quote mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-tight"
+                  >
+                    Request a quote
+                  </h2>
+                </div>
+
+                <div
+                  class="hidden shrink-0 flex-col items-center border-white/25 text-center lg:flex lg:flex-col lg:items-start lg:border-l lg:pl-10 lg:text-left"
+                >
+                  <a
+                    href="tel:+12035263516"
+                    class="font-display text-xl font-bold tabular-nums tracking-tight text-white transition hover:text-gold-50 sm:text-2xl"
+                    >(203) 526-3516</a
+                  >
+                  <p class="mt-2 flex items-center justify-center gap-2 text-sm text-white/85 lg:justify-start">
+                    <svg class="h-4 w-4 shrink-0 opacity-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
+                    </svg>
+                    <span>We aim to respond within 24 hours</span>
+                  </p>
+                </div>
+              </div>
+
+              <form
+                id="home-quote-form"
+                class="mt-6 space-y-4 sm:mt-8"
+                action="#"
+                method="post"
+                novalidate
+                data-web3forms-key="24c92345-7690-45a1-9e0f-18ee8e703a9b"
+                data-web3forms-feedback="homepage-quote-feedback"
+                data-web3forms-subject="Quote request — United Flooring America (homepage)"
+                data-web3forms-footer="— Sent from unitedflooringamerica.com (homepage quote form)"
+              >
+                <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  <label class="sr-only" for="home-quote-name">Name</label>
+                  <input
+                    id="home-quote-name"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    required
+                    placeholder="Name"
+                    class="home-quote-input w-full min-w-0 rounded-full border-0 bg-gold-50/95 px-5 py-3.5 text-sm font-medium text-navy placeholder:text-slate-500 shadow-inner shadow-black/5 ring-1 ring-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                  />
+                  <label class="sr-only" for="home-quote-email">Email</label>
+                  <input
+                    id="home-quote-email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                    placeholder="Email"
+                    class="home-quote-input w-full min-w-0 rounded-full border-0 bg-gold-50/95 px-5 py-3.5 text-sm font-medium text-navy placeholder:text-slate-500 shadow-inner shadow-black/5 ring-1 ring-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                  />
+                  <label class="sr-only" for="home-quote-zip">Project zip code</label>
+                  <input
+                    id="home-quote-zip"
+                    name="zip"
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="postal-code"
+                    placeholder="Project zip code"
+                    class="home-quote-input w-full min-w-0 rounded-full border-0 bg-gold-50/95 px-5 py-3.5 text-sm font-medium text-navy placeholder:text-slate-500 shadow-inner shadow-black/5 ring-1 ring-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold sm:col-span-2 lg:col-span-1"
+                  />
+                </div>
+                <div>
+                  <label class="sr-only" for="home-quote-service">Services</label>
+                  <div class="relative min-w-0">
+                    <select
+                      id="home-quote-service"
+                      name="service"
+                      class="home-quote-input home-quote-select w-full appearance-none rounded-full border-0 bg-gold-50/95 py-3.5 pl-5 pr-10 text-sm font-medium text-navy shadow-inner shadow-black/5 ring-1 ring-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                    >
+                      <option value="" selected disabled>Select services</option>
+                      <option value="Hardwood installation">Hardwood installation</option>
+                      <option value="Refinishing">Hardwood refinishing</option>
+                      <option value="Vinyl / LVP">Vinyl / LVP</option>
+                      <option value="Laminate">Laminate</option>
+                      <option value="Tile / stone (if applicable)">Tile / stone</option>
+                      <option value="Commercial / VCT">Commercial / VCT</option>
+                      <option value="Repairs">Repairs</option>
+                      <option value="Multiple / not sure">Multiple / not sure yet</option>
+                    </select>
+                    <span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-navy/70" aria-hidden="true">▾</span>
+                  </div>
+                </div>
+                <div>
+                  <label class="sr-only" for="home-quote-message">Project details</label>
+                  <textarea
+                    id="home-quote-message"
+                    name="message"
+                    required
+                    rows="3"
+                    placeholder="Rooms, square footage, flooring type, and anything else we should know…"
+                    class="home-quote-input w-full resize-y rounded-3xl border-0 bg-gold-50/95 px-5 py-4 text-sm font-medium text-navy placeholder:text-slate-500 shadow-inner shadow-black/5 ring-1 ring-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="inline-flex w-full min-h-[2.875rem] items-center justify-center gap-2 rounded-full bg-gold px-6 py-3.5 text-sm font-bold text-navy shadow-lg shadow-black/20 transition hover:bg-gold-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-navy/40"
+                >
+                  Get estimate
+                  <span class="text-base font-normal leading-none" aria-hidden="true">↗</span>
+                </button>
+                <p id="homepage-quote-feedback" class="contact-form-feedback mt-1" role="status" aria-live="polite" hidden></p>
+              </form>
+
+              <div class="mt-6 flex flex-col gap-4 border-t border-white/20 pt-6 text-center text-sm text-white/90 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-8 sm:gap-y-2 lg:justify-between lg:text-left">
+                <p>
+                  Or email
+                  <a
+                    href="mailto:unitedflooringamerica@gmail.com"
+                    class="break-all font-semibold text-white underline decoration-white/50 underline-offset-4 transition hover:decoration-white"
+                    >unitedflooringamerica@gmail.com</a
+                  >
+                </p>
+                <p class="text-white/80">
+                  Prefer to browse first?
+                  <a
+                    href="gallery.html"
+                    class="font-semibold text-white underline decoration-white/50 underline-offset-4 transition hover:decoration-white"
+                    >View our gallery</a
+                  >
+                  ·
+                  <a
+                    href="contact.html"
+                    class="font-semibold text-white underline decoration-white/50 underline-offset-4 transition hover:decoration-white"
+                    >Full contact form</a
+                  >
+                </p>
+              </div>
+            </div>
           </div>
-          <p class="mt-6 text-sm text-slate-600">
-            Or email
-            <a
-              href="mailto:unitedflooringamerica@gmail.com"
-              class="break-all font-semibold text-navy underline-offset-4 hover:underline"
-              >unitedflooringamerica@gmail.com</a
-            >
-          </p>
-          <p class="mt-8 text-sm text-slate-500">
-            Prefer to browse first?
-            <a href="gallery.html" class="font-semibold text-navy underline-offset-4 hover:underline">View our gallery</a>
-          </p>
         </div>
       </section>
     </main>
@@ -1566,6 +2025,8 @@
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script defer src="js/carousel.js"></script>
     <script defer src="js/google-reviews.js"></script>
+    <script defer src="js/before-after-slider.js"></script>
     <script defer src="js/main.js"></script>
+    <script defer src="js/contact-form.js"></script>
   </body>
 </html>

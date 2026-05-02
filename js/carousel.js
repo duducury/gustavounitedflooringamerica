@@ -125,6 +125,47 @@
       { once: true },
     );
   }
+
+  /** What We Install — horizontal card carousel (touch + desktop drag) */
+  var servicesCardsEl = document.querySelector(".services-cards-swiper");
+  if (servicesCardsEl) {
+    var servicesPag = servicesCardsEl.querySelector(".services-cards-pagination");
+    new Swiper(servicesCardsEl, {
+      slidesPerView: 1.08,
+      spaceBetween: 16,
+      centeredSlides: true,
+      loop: false,
+      rewind: true,
+      speed: reducedMotion ? 0 : 480,
+      grabCursor: true,
+      threshold: 6,
+      watchOverflow: true,
+      pagination: servicesPag
+        ? {
+            el: servicesPag,
+            clickable: true,
+          }
+        : undefined,
+      keyboard: { enabled: true, onlyInViewport: true },
+      breakpoints: {
+        480: {
+          slidesPerView: 1.22,
+          spaceBetween: 18,
+        },
+        768: {
+          slidesPerView: 2,
+          centeredSlides: false,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3,
+          centeredSlides: false,
+          spaceBetween: 24,
+        },
+      },
+    });
+  }
+
   var root = document.getElementById("work-carousel");
   var el = document.querySelector(".work-swiper-cover");
   if (!root || !el) return;
@@ -196,7 +237,6 @@
       loop: false,
       rewind: true,
       speed: 550,
-      initialSlide: 2,
       navigation: {
         prevEl: "#carousel-prev",
         nextEl: "#carousel-next",
