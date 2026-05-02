@@ -181,19 +181,32 @@
       <!-- Hero -->
       <section
         aria-labelledby="about-hero-heading"
-        class="about-page-hero relative overflow-hidden bg-gradient-to-b from-[#0a1f38] via-navy to-navy pb-16 pt-14 text-white sm:pb-20 sm:pt-16"
+        class="about-page-hero relative isolate overflow-hidden bg-gradient-to-b from-[#0a1f38] via-navy to-navy pb-12 pt-12 text-white sm:pb-20 sm:pt-16"
       >
-        <div
-          class="pointer-events-none absolute inset-0 opacity-[0.07]"
-          aria-hidden="true"
-          style="background-image: url('images/unitedflooringamerica/baner0.1.jpg'); background-size: cover; background-position: center;"
-        ></div>
-        <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p class="text-xs font-semibold uppercase tracking-[0.26em] text-gold">About us</p>
-          <h1 id="about-hero-heading" class="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.25rem]">
+        <div class="pointer-events-none absolute inset-0 z-0 opacity-[0.07]" aria-hidden="true">
+          <picture class="absolute inset-0 block h-full w-full min-h-0">
+            <source
+              media="(max-width: 767px)"
+              srcset="images/unitedflooringamerica/baner0.1-hero-mobile.jpg"
+              type="image/jpeg"
+            />
+            <img
+              src="images/unitedflooringamerica/baner0.1-hero.jpg"
+              alt=""
+              width="1916"
+              height="821"
+              class="h-full w-full min-h-[12rem] object-cover object-center sm:min-h-0"
+              fetchpriority="low"
+              decoding="async"
+            />
+          </picture>
+        </div>
+        <div class="relative z-10 mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+          <p class="text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-gold sm:text-xs sm:tracking-[0.26em]">About us</p>
+          <h1 id="about-hero-heading" class="font-display mt-3 max-w-3xl text-[1.75rem] font-bold leading-[1.12] tracking-tight sm:mt-4 sm:text-5xl sm:leading-[1.1] lg:text-[3.25rem]">
             Floors you can trust—installed with care across Southwestern Connecticut
           </h1>
-          <div class="about-hero-prose mx-auto mt-6 max-w-2xl text-base text-white/80 sm:text-lg">
+          <div class="about-hero-prose mx-auto mt-5 max-w-2xl text-[0.9375rem] leading-relaxed text-white/80 sm:mt-6 sm:text-lg">
             <p>
               We’re a local team obsessed with <strong class="font-semibold text-white">seams, transitions, and finishes</strong>—
             </p>
@@ -205,29 +218,30 @@
       </section>
 
       <!-- Intro -->
-      <section class="fade-in-section relative z-10 -mt-8 border-b border-slate-200/90 bg-transparent" id="about-intro" aria-labelledby="about-intro-heading">
-        <div class="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-20">
+      <section class="relative z-10 -mt-6 border-b border-slate-200/90 bg-transparent sm:-mt-8" id="about-intro" aria-labelledby="about-intro-heading">
+        <div class="mx-auto max-w-7xl px-3 pb-12 sm:px-6 sm:pb-16 lg:px-8 lg:pb-20">
           <div
-            class="overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-[0_24px_60px_-32px_rgb(15,40,71,0.35)] lg:flex lg:min-h-[min(520px,70vh)]"
+            class="about-intro-card flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_24px_60px_-32px_rgb(15,40,71,0.35)] sm:rounded-3xl lg:min-h-[min(520px,70vh)] lg:flex-row"
           >
-            <div class="relative lg:w-[min(52%,560px)] lg:shrink-0">
+            <div class="relative w-full shrink-0 lg:w-[min(52%,560px)]">
               <img
                 src="images/unitedflooringamerica/galeria/649504282_122099480013162968_5529286019344761327_n.jpg"
                 alt="Flooring installation in a Connecticut home"
                 width="1200"
                 height="675"
-                class="h-full min-h-[280px] w-full object-cover object-center sm:min-h-[360px] lg:min-h-full"
-                loading="eager"
+                class="h-full min-h-[200px] w-full object-cover object-center sm:min-h-[260px] md:min-h-[320px] lg:min-h-full"
+                loading="lazy"
+                fetchpriority="low"
                 decoding="async"
               />
               <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent lg:bg-gradient-to-r" aria-hidden="true"></div>
             </div>
-            <div class="flex flex-1 flex-col justify-center p-8 sm:p-10 lg:p-14">
+            <div class="flex min-w-0 flex-1 flex-col justify-center p-5 sm:p-8 lg:p-14">
               <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">United Flooring America</p>
-              <h2 id="about-intro-heading" class="font-display mt-3 text-3xl font-bold tracking-tight text-navy sm:text-[2rem] lg:text-[2.25rem]">
+              <h2 id="about-intro-heading" class="font-display mt-3 text-2xl font-bold tracking-tight text-navy sm:text-3xl sm:leading-tight lg:text-[2.25rem]">
                 Installation-first, start to finish
               </h2>
-              <div class="about-prose mt-6 space-y-0 text-[0.975rem] text-slate-600 sm:text-base">
+              <div class="about-prose mt-5 space-y-0 text-[0.9375rem] text-slate-600 sm:mt-6 sm:text-base">
                 <p>
                   We help homeowners and businesses choose surfaces that fit how they live—then prep, lay, trim, and clean up like
                   it’s our own place.
@@ -236,27 +250,35 @@
                   <strong class="font-semibold text-navy">Materials matter; how they’re installed matters just as much.</strong>
                 </p>
               </div>
-              <ul class="mt-8 grid gap-3 text-sm text-slate-700 sm:grid-cols-1" role="list">
-                <li class="flex items-start gap-3 rounded-xl bg-slate-50/90 px-4 py-3 ring-1 ring-slate-200/80">
+              <ul class="mt-6 grid gap-2.5 text-sm text-slate-700 sm:mt-8 sm:gap-3" role="list">
+                <li class="flex items-start gap-3 rounded-xl bg-slate-50/90 px-3.5 py-2.5 ring-1 ring-slate-200/80 sm:px-4 sm:py-3">
                   <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/20 font-display text-xs font-bold text-navy">✓</span>
                   <span><strong class="font-semibold text-navy">Licensed &amp; insured</strong> — full coverage on every job site.</span>
                 </li>
-                <li class="flex items-start gap-3 rounded-xl bg-slate-50/90 px-4 py-3 ring-1 ring-slate-200/80">
+                <li class="flex items-start gap-3 rounded-xl bg-slate-50/90 px-3.5 py-2.5 ring-1 ring-slate-200/80 sm:px-4 sm:py-3">
                   <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/20 font-display text-xs font-bold text-navy">✓</span>
                   <span><strong class="font-semibold text-navy">Straight talk</strong> — clear scope and pricing before we tear out the first plank.</span>
                 </li>
-                <li class="flex items-start gap-3 rounded-xl bg-slate-50/90 px-4 py-3 ring-1 ring-slate-200/80">
+                <li class="flex items-start gap-3 rounded-xl bg-slate-50/90 px-3.5 py-2.5 ring-1 ring-slate-200/80 sm:px-4 sm:py-3">
                   <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold/20 font-display text-xs font-bold text-navy">✓</span>
                   <span><strong class="font-semibold text-navy">Local crew</strong> — the same discipline on small rooms and whole-home installs.</span>
                 </li>
               </ul>
-              <div class="mt-10 flex flex-wrap gap-4">
+              <div class="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap">
                 <a
                   href="contact.html"
-                  class="inline-flex min-h-[48px] items-center justify-center rounded-full bg-gold px-8 py-3.5 text-sm font-semibold text-navy shadow-md transition hover:bg-gold-600 hover:text-white"
+                  class="inline-flex min-h-[48px] w-full items-center justify-center rounded-full bg-gold px-6 py-3.5 text-sm font-semibold text-navy shadow-md transition hover:bg-gold-600 hover:text-white sm:w-auto sm:px-8"
                   >Free estimate</a
                 >
-                <a href="gallery.html" class="inline-flex min-h-[48px] items-center justify-center rounded-full border border-slate-300 bg-white px-8 py-3.5 text-sm font-semibold text-navy transition hover:border-navy hover:bg-slate-50">
+                <a
+                  href="services.html"
+                  class="inline-flex min-h-[48px] w-full items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-navy transition hover:border-navy hover:bg-slate-50 sm:w-auto sm:px-8"
+                  >Our services</a
+                >
+                <a
+                  href="gallery.html"
+                  class="inline-flex min-h-[48px] w-full items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-navy transition hover:border-navy hover:bg-slate-50 sm:w-auto sm:px-8"
+                >
                   View gallery
                 </a>
               </div>
@@ -265,8 +287,8 @@
         </div>
       </section>
 
-      <section class="about-trust-bar fade-in-section py-8 sm:py-10" aria-label="Trust highlights">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section class="about-trust-bar fade-in-section py-7 sm:py-9" aria-label="Trust highlights">
+        <div class="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
           <ul class="about-trust-bar__list" role="list">
             <li class="about-trust-bar__item"><span aria-hidden="true">✔</span> Licensed &amp; Insured</li>
             <li class="about-trust-bar__item"><span aria-hidden="true">✔</span> 25+ Years Experience</li>
@@ -276,43 +298,36 @@
         </div>
       </section>
 
-      <section class="fade-in-section py-16 sm:py-20" id="our-story">
-        <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:grid-cols-2 sm:gap-14 sm:items-center lg:px-8">
-          <div class="order-2 sm:order-1">
+      <section class="fade-in-section py-14 sm:py-20" id="our-story">
+        <div class="mx-auto grid max-w-7xl gap-8 px-3 sm:grid-cols-2 sm:gap-12 sm:items-center sm:px-6 lg:px-8 lg:gap-14">
+          <div class="order-2 min-w-0 sm:order-1">
             <div class="about-card">
               <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">How we grew</p>
               <h2 class="font-display mt-3 text-2xl font-bold text-navy sm:text-3xl lg:text-4xl">Our story</h2>
               <div class="about-prose mt-4 space-y-0 text-slate-700">
                 <p class="leading-relaxed text-slate-600">
-                  United Flooring America started with a simple focus: <strong class="font-semibold text-navy-800">installations done right—the first time.</strong>
+                  United Flooring America started with a simple focus:
+                  <strong class="font-semibold text-navy-800">installations done right—the first time.</strong>
+                  That turned into repeat referrals and a reputation homeowners could lean on across the region—from hardwood
+                  refinishing to waterproof vinyl in busy kitchens.
                 </p>
                 <p class="leading-relaxed text-slate-600">
-                  That mindset turned into repeat referrals, larger projects, and a reputation homeowners could lean on throughout
-                  the region.
-                </p>
-                <p class="leading-relaxed text-slate-600">
-                  Flooring isn’t just what you walk on—it sets rhythm for a room.
-                </p>
-                <p class="leading-relaxed text-slate-600">
-                  We carry that mindset from hardwood refinements to waterproof vinyl in busy kitchens, always balancing design
-                  with durability.
-                </p>
-                <p class="leading-relaxed text-slate-600">We train continuously, tune our process with new tools and products, and show up prepared.</p>
-                <p class="leading-relaxed text-slate-600">
-                  If you’ve seen our work in a neighbor’s home, that’s the standard we aim for on yours.
+                  Our crew trains continuously on new products and codes, shows up prepared, and treats estimates and job sites like
+                  promises. If you have seen our work nearby, that is the standard we bring to your home.
                 </p>
               </div>
             </div>
           </div>
           <div class="order-1 sm:order-2">
-            <div class="ui-lift overflow-hidden rounded-3xl shadow-[0_22px_50px_-28px_rgb(15,40,71,0.35)] ring-1 ring-white/10 ring-offset-2 ring-offset-slate-100">
+            <div class="ui-lift overflow-hidden rounded-2xl shadow-[0_22px_50px_-28px_rgb(15,40,71,0.35)] ring-1 ring-slate-200/80 sm:rounded-3xl">
               <img
-                src="images/unitedflooringamerica/galeria/649658305_122100519327162968_6662982746185232628_n.jpg"
-                alt="Interior with professionally installed flooring"
-                width="1200"
-                height="675"
+                src="images/unitedflooringamerica/galeria/646817769_1912250662757185_256916839889641369_n.jpg"
+                alt="United Flooring America — flooring project and craftsmanship in Connecticut"
+                width="1600"
+                height="900"
                 class="aspect-[4/3] w-full object-cover object-center"
                 loading="lazy"
+                fetchpriority="low"
                 decoding="async"
               />
             </div>
@@ -320,222 +335,53 @@
         </div>
       </section>
 
-      <div class="about-photo-break fade-in-section" aria-hidden="true">
-        <img
-          src="images/unitedflooringamerica/galeria/646817769_1912250662757185_256916839889641369_n.jpg"
-          alt=""
-          width="1600"
-          height="900"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-
-      <section class="fade-in-section py-14 sm:py-16" aria-labelledby="about-mid-cta-heading">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="about-card about-mid-cta__wrap px-8 py-10 text-center sm:px-10 sm:py-12">
-            <h2 id="about-mid-cta-heading" class="font-display text-2xl font-bold text-navy sm:text-3xl">
-              Ready to upgrade your floors?
+      <section
+        class="fade-in-section border-t border-slate-200 bg-slate-50/90 py-12 sm:py-16"
+        aria-labelledby="about-mission-heading"
+      >
+        <div class="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+          <div class="mx-auto max-w-3xl text-center lg:text-left">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">Our mission</p>
+            <h2 id="about-mission-heading" class="font-display mt-3 text-2xl font-bold text-navy sm:text-3xl">
+              Better spaces, honestly built
             </h2>
-            <p class="about-prose mx-auto mt-4 max-w-md text-slate-600">Get a fast, no-obligation estimate today.</p>
-            <a href="contact.html" class="about-mid-cta__btn focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
-              >Get Free Estimate →</a
-            >
+            <p class="mt-4 text-pretty text-[0.9375rem] leading-relaxed text-slate-600 sm:text-base">
+              We elevate homes and workplaces with flooring that adds comfort, longevity, and value—paired with installers who
+              sweat the details others skip. From first measurement to final walk-through, we work as transparent partners.
+            </p>
           </div>
+          <ul class="about-values-compact mt-8 grid list-none gap-3 p-0 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3" role="list">
+            <li class="about-values-compact__item">
+              <p class="font-display text-base font-semibold text-navy">Excellence</p>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                Same standard we would want in our own homes—no rushed seams or sloppy transitions.
+              </p>
+            </li>
+            <li class="about-values-compact__item">
+              <p class="font-display text-base font-semibold text-navy">Integrity</p>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                Real timelines and written scope—we would rather lose a bid than oversell vapor.
+              </p>
+            </li>
+            <li class="about-values-compact__item sm:col-span-2 lg:col-span-1">
+              <p class="font-display text-base font-semibold text-navy">Client focus</p>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                Flooring should match how you live—we ask upfront so specs match kitchens, kids, pets, and resale goals.
+              </p>
+            </li>
+          </ul>
         </div>
       </section>
 
-      <section class="fade-in-section border-t border-slate-200 bg-navy py-16 text-white sm:py-20" id="our-mission">
-        <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <div class="about-card about-card--on-dark text-left text-white sm:text-center">
-            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-gold">Our mission</p>
-            <h2 class="font-display mt-4 text-3xl font-bold text-white sm:text-4xl">Better spaces, honestly built</h2>
-            <div class="about-prose mt-8 space-y-0 text-[0.98rem] text-white/[0.82] sm:text-base">
-              <p>
-                Elevate homes and workplaces with flooring that adds comfort, longevity, and value—paired with installers who sweat
-                the details others skip.
-              </p>
-              <p>
-                We treat estimates, schedules, and job sites like promises. When you invite us in, we work as transparent
-                partners from first measurement to final walk-through.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="fade-in-section py-16 sm:py-20" id="our-values">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="mx-auto max-w-2xl text-center">
-            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">Values</p>
-            <h2 class="mt-3 font-display text-3xl font-bold text-navy sm:text-4xl">What guides every board we lay</h2>
-            <p class="mt-4 text-slate-600">Practical standards—so your project stays on track without surprises.</p>
-          </div>
-          <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            <div
-              class="about-card about-values-card ui-lift transition hover:border-gold/40 hover:shadow-[0_14px_40px_-24px_rgb(15,40,71,0.25)]"
-            >
-              <div class="about-values-card__icon" aria-hidden="true">
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.385a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-                </svg>
-              </div>
-              <h3 class="font-display text-lg font-semibold text-navy">Excellence</h3>
-              <p class="mt-3 text-sm leading-relaxed text-slate-600">
-                Cutting corners isn’t optional—we hold installs to the same standards we’d want in our own homes.
-              </p>
-            </div>
-            <div
-              class="about-card about-values-card ui-lift transition hover:border-gold/40 hover:shadow-[0_14px_40px_-24px_rgb(15,40,71,0.25)]"
-            >
-              <div class="about-values-card__icon" aria-hidden="true">
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                </svg>
-              </div>
-              <h3 class="font-display text-lg font-semibold text-navy">Integrity</h3>
-              <p class="mt-3 text-sm leading-relaxed text-slate-600">
-                Real timelines, written scope, and follow-through—we’d rather lose a bid than oversell vapor.
-              </p>
-            </div>
-            <div
-              class="about-card about-values-card ui-lift transition hover:border-gold/40 hover:shadow-[0_14px_40px_-24px_rgb(15,40,71,0.25)]"
-            >
-              <div class="about-values-card__icon" aria-hidden="true">
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.438-3.412M6 19.128a9.38 9.38 0 01-2.625.372 9.337 9.337 0 01-4.121-.952 4.125 4.125 0 017.438-3.412M12.063 4.063a4.125 4.125 0 11-5.25 6.375L12 15.75l5.188-5.313a4.125 4.125 0 11-5.125-6.374z" />
-                </svg>
-              </div>
-              <h3 class="font-display text-lg font-semibold text-navy">Client focus</h3>
-              <p class="mt-3 text-sm leading-relaxed text-slate-600">
-                Flooring should match your routine—we ask questions upfront so specs match reality.
-              </p>
-            </div>
-            <div
-              class="about-card about-values-card ui-lift transition hover:border-gold/40 hover:shadow-[0_14px_40px_-24px_rgb(15,40,71,0.25)]"
-            >
-              <div class="about-values-card__icon" aria-hidden="true">
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
-                </svg>
-              </div>
-              <h3 class="font-display text-lg font-semibold text-navy">Craft + innovation</h3>
-              <p class="mt-3 text-sm leading-relaxed text-slate-600">
-                Old-school workmanship meets today’s adhesives, underlayments, and wear layers—best of both worlds.
-              </p>
-            </div>
-            <div
-              class="about-card about-values-card ui-lift transition hover:border-gold/40 hover:shadow-[0_14px_40px_-24px_rgb(15,40,71,0.25)] sm:col-span-2 lg:col-span-1"
-            >
-              <div class="about-values-card__icon" aria-hidden="true">
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15h.008v.008H12V15z"
-                  />
-                </svg>
-              </div>
-              <h3 class="font-display text-lg font-semibold text-navy">Safety</h3>
-              <p class="mt-3 text-sm leading-relaxed text-slate-600">
-                Neat piles, taped-off areas, respectful crews—we protect pets, possessions, and people on site.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="about-photo-break fade-in-section" aria-hidden="true">
-        <img
-          src="images/unitedflooringamerica/galeria/647060161_122096352759162968_8335691356491905927_n.jpg"
-          alt=""
-          width="1600"
-          height="900"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-
-      <section class="fade-in-section border-t border-slate-200 bg-slate-50/90 py-16 sm:py-20" id="our-team">
-        <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div class="about-card text-center sm:text-left">
-            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-gold-600">People</p>
-            <h2 class="font-display mt-3 text-3xl font-bold text-navy sm:text-4xl">Our team</h2>
-            <div class="about-prose mt-8 space-y-0 text-[0.98rem] text-slate-600 sm:text-base">
-              <p>
-                United Flooring America is made of installers who take pride in straight lines—layout, leveling, trims, thresholds,
-                vents.
-              </p>
-              <p>Hardwood or LVP, we orchestrate crews so timelines and workmanship stay steady.</p>
-              <p>
-                Ongoing training keeps us fluent in new planks, adhesives, and building codes—so whether your slab is stubborn or
-                your stair nose is tricky, you get planners and craftspeople who keep you informed and your home respected.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="fade-in-section bg-white py-16 sm:py-20" id="why-us">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="mx-auto max-w-2xl text-center">
-            <h2 class="font-display text-3xl font-bold text-navy sm:text-4xl">Why homeowners pick us</h2>
-            <p class="mt-4 text-slate-600">Straight answers, steady crews, finishes that hold up.</p>
-          </div>
-          <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <div
-              class="about-card about-why-card group transition hover:border-gold/30 hover:shadow-md"
-            >
-              <h3 class="font-display text-lg font-semibold text-navy">Certified craftsmen</h3>
-              <p class="about-prose mt-3 text-sm text-slate-600">
-                Licensed pros who specialize in multiple flooring categories—so options don’t bottleneck at install day.
-              </p>
-            </div>
-            <div
-              class="about-card about-why-card group transition hover:border-gold/30 hover:shadow-md"
-            >
-              <h3 class="font-display text-lg font-semibold text-navy">Organized installs</h3>
-              <p class="about-prose mt-3 text-sm text-slate-600">
-                Demo → prep → lay → punch list—milestones you can see, not guess.
-              </p>
-            </div>
-            <div
-              class="about-card about-why-card group transition hover:border-gold/30 hover:shadow-md"
-            >
-              <h3 class="font-display text-lg font-semibold text-navy">Materials that last</h3>
-              <p class="about-prose mt-3 text-sm text-slate-600">
-                Curated catalogs from distributors we’d stand behind—with samples you can compare in your lighting.
-              </p>
-            </div>
-            <div
-              class="about-card about-why-card group transition hover:border-gold/30 hover:shadow-md"
-            >
-              <h3 class="font-display text-lg font-semibold text-navy">Schedule &amp; budget clarity</h3>
-              <p class="about-prose mt-3 text-sm text-slate-600">
-                No mystery change orders—we flag scope creep before it hits your invoice.
-              </p>
-            </div>
-            <div
-              class="about-card about-why-card group transition hover:border-gold/30 hover:shadow-md sm:col-span-2 lg:col-span-1"
-            >
-              <h3 class="font-display text-lg font-semibold text-navy">Tailored solutions</h3>
-              <p class="about-prose mt-3 text-sm text-slate-600">
-                Pets, kids, resale, rental—influences steer our recommendations beyond “what’s trendy this season.”
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="fade-in-section border-t border-slate-200 py-16 sm:py-20" id="process">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section class="fade-in-section border-t border-slate-200 py-14 sm:py-20" id="process">
+        <div class="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
           <div class="mx-auto max-w-2xl text-center">
             <p class="text-xs font-semibold uppercase tracking-[0.18em] text-gold-600">Process</p>
-            <h2 class="mt-4 font-display text-3xl font-bold uppercase tracking-[0.08em] text-navy sm:text-4xl sm:tracking-normal sm:normal-case">
+            <h2 class="mt-3 font-display text-2xl font-bold uppercase tracking-[0.06em] text-navy sm:mt-4 sm:text-4xl sm:tracking-normal sm:normal-case">
               Four straightforward steps
             </h2>
           </div>
-          <ol class="about-process mt-14" role="list">
+          <ol class="about-process mt-8 sm:mt-12 lg:mt-14" role="list">
             <li class="about-process__step">
               <span class="about-process__num" aria-hidden="true">1</span>
               <div>
@@ -570,80 +416,8 @@
         </div>
       </section>
 
-      <section class="fade-in-section border-t border-slate-200 bg-white py-14 sm:py-16">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="about-card about-services-card px-6 py-10 sm:px-10 sm:py-12">
-            <h2 class="font-display text-center text-2xl font-bold text-navy sm:text-3xl">Services we offer</h2>
-            <ul class="about-prose mt-10 flex flex-wrap justify-center gap-x-6 gap-y-3 text-left text-sm font-medium text-slate-700" role="list">
-            <li><a href="services.html#hardwood-installation" class="text-navy underline-offset-4 transition hover:text-gold-600 hover:underline">Hardwood installation</a></li>
-            <li><a href="services.html#hardwood-refinishing" class="text-navy underline-offset-4 transition hover:text-gold-600 hover:underline">Hardwood refinishing</a></li>
-            <li><a href="services.html#hardwood-repair" class="text-navy underline-offset-4 transition hover:text-gold-600 hover:underline">Hardwood repair</a></li>
-            <li><a href="services.html#vinyl-flooring" class="text-navy underline-offset-4 transition hover:text-gold-600 hover:underline">Vinyl flooring</a></li>
-            <li><a href="services.html#laminate-flooring" class="text-navy underline-offset-4 transition hover:text-gold-600 hover:underline">Laminate flooring</a></li>
-            <li><a href="services.html#vct-flooring" class="text-navy underline-offset-4 transition hover:text-gold-600 hover:underline">VCT flooring</a></li>
-            <li><a href="services.html#custom-flooring-design" class="text-navy underline-offset-4 transition hover:text-gold-600 hover:underline">Custom design</a></li>
-          </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="fade-in-section bg-navy py-14 text-white sm:py-16">
-        <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
-          <p class="text-xs font-semibold uppercase tracking-[0.22em] text-gold">Connect</p>
-          <h2 class="font-display mt-3 text-2xl font-bold sm:text-3xl">Follow us</h2>
-          <div class="mt-8 flex flex-wrap justify-center gap-4">
-            <a
-              href="https://www.facebook.com/unitedflooringamerica"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold backdrop-blur-sm transition hover:bg-white/15"
-              aria-label="Facebook"
-            >
-              <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path
-                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                />
-              </svg>
-              Facebook
-            </a>
-            <a
-              href="https://www.instagram.com/unitedflooringamerica/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-semibold backdrop-blur-sm transition hover:bg-white/15"
-              aria-label="Instagram"
-            >
-              <svg class="h-5 w-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"
-                />
-              </svg>
-              Instagram
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="estimate-cta"
-        data-mobile-photo="images/unitedflooringamerica/static2.png?v=2"
-        class="relative z-[26] isolate w-full overflow-hidden bg-[#fafbfc] md:flex md:min-h-[min(60vh,680px)] md:items-center md:justify-center md:bg-transparent md:py-28 md:px-4 lg:min-h-[min(64vh,780px)] lg:py-32"
-        aria-hidden="true"
-      >
-        <div class="cta-parallax-bg pointer-events-none absolute inset-0 z-0 hidden md:block"></div>
-        <img
-          src="images/unitedflooringamerica/static2.png?v=2"
-          alt="Flooring projects and service area — Connecticut and region"
-          width="1920"
-          height="1080"
-          loading="lazy"
-          decoding="async"
-          class="estimate-cta-mobile-photo pointer-events-none relative z-10 block h-auto w-full max-w-none object-cover object-center md:hidden"
-        />
-      </section>
-
-      <section class="fade-in-section border-t border-slate-200 bg-white py-14 sm:py-16 lg:py-20" aria-labelledby="about-estimate-cta-heading">
-        <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+      <section class="fade-in-section border-t border-slate-200 bg-white py-12 sm:py-16 lg:py-20" aria-labelledby="about-estimate-cta-heading">
+        <div class="mx-auto max-w-3xl px-3 text-center sm:px-6 lg:px-8">
           <p class="text-xs font-semibold uppercase tracking-[0.22em] text-gold-600">
             Experience our expert &amp; convenient service today
           </p>
@@ -659,13 +433,16 @@
               >unitedflooringamerica@gmail.com</a
             >
           </p>
-          <div class="mt-8 flex flex-wrap justify-center gap-4">
-            <a href="contact.html" class="inline-flex rounded-full bg-navy px-8 py-3.5 font-semibold text-white shadow hover:bg-navy-800">
+          <div class="mt-8 flex w-full max-w-md flex-col gap-3 sm:mx-auto sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
+            <a
+              href="contact.html"
+              class="inline-flex min-h-[48px] w-full items-center justify-center rounded-full bg-navy px-6 py-3.5 text-sm font-semibold text-white shadow hover:bg-navy-800 sm:w-auto sm:px-8 sm:text-base"
+            >
               Contact us — free estimate
             </a>
             <a
               href="tel:+12035263516"
-              class="inline-flex rounded-full border border-slate-300 bg-white px-8 py-3.5 font-semibold text-navy shadow-sm hover:bg-slate-50"
+              class="inline-flex min-h-[48px] w-full items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-navy shadow-sm hover:bg-slate-50 sm:w-auto sm:px-8 sm:text-base"
               >(203) 526-3516</a
             >
           </div>

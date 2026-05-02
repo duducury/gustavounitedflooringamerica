@@ -2360,6 +2360,70 @@ body.services-page .service-row__lede {
 /* --- About page: cards, trust bar, mid CTA, timeline, image breaks --- */
 body.about-page {
   --about-gold: #c9a24a;
+  overflow-x: clip;
+}
+
+body.about-page #our-story,
+body.about-page [aria-labelledby="about-mission-heading"],
+body.about-page #process {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 420px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.about-page #our-story,
+  body.about-page [aria-labelledby="about-mission-heading"],
+  body.about-page #process {
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
+  }
+}
+
+.about-values-compact {
+  margin: 0;
+}
+
+.about-values-compact__item {
+  margin: 0;
+  border-radius: 16px;
+  padding: 1rem 1.125rem;
+  background: #fff;
+  border: 1px solid rgba(15, 40, 71, 0.08);
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.06);
+}
+
+@media (min-width: 640px) {
+  .about-values-compact__item {
+    padding: 1.2rem 1.35rem;
+  }
+}
+
+.about-intro-card img {
+  max-height: min(52vh, 420px);
+}
+
+@media (min-width: 1024px) {
+  .about-intro-card img {
+    max-height: none;
+  }
+}
+
+.about-process__step > div:last-child {
+  min-width: 0;
+}
+
+@media (max-width: 639px) {
+  .about-process__step {
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+
+  .about-process__num {
+    width: 2.875rem;
+    height: 2.875rem;
+    font-size: 1.25rem;
+  }
 }
 
 body.about-page main > section:not(.about-page-hero) {
@@ -2616,8 +2680,8 @@ body.about-page main > section:not(.about-page-hero) {
 
 body.about-page .fade-in-section {
   transition:
-    opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @media (prefers-reduced-motion: reduce) {
