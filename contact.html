@@ -36,7 +36,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -44,10 +44,14 @@
       tailwind.config = {
         theme: {
           extend: {
-            colors: { navy: { DEFAULT: "#0f2847", 800: "#0c1f38" }, gold: { DEFAULT: "#b8923c", 600: "#9a7829" } },
+            colors: {
+              navy: { DEFAULT: "#0f2847", 50: "#f0f4f9", 100: "#dce6f2", 800: "#0c1f38" },
+              gold: { DEFAULT: "#b8923c", 50: "#faf6ee", 600: "#9a7829" },
+            },
             fontFamily: {
               sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
               display: ["Outfit", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+              quote: ['"Cormorant Garamond"', "Georgia", "ui-serif", "serif"],
             },
           },
         },
@@ -215,85 +219,204 @@
           class="contact-main-grid mx-auto flex max-w-7xl flex-col items-stretch gap-12 px-5 py-14 sm:gap-14 sm:px-6 sm:py-16 lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-14 lg:gap-y-8 lg:px-8 lg:py-24"
         >
           <div class="contact-form-col fade-in-section order-1 lg:order-none">
-            <div class="contact-form-card">
-              <ul class="contact-trust-row" role="list">
-                <li><span class="contact-trust-row__mark" aria-hidden="true">✔</span> Free estimates</li>
-                <li><span class="contact-trust-row__mark" aria-hidden="true">✔</span> Licensed &amp; insured</li>
-                <li><span class="contact-trust-row__mark" aria-hidden="true">✔</span> Fast response</li>
-              </ul>
-              <div class="contact-quick-actions hidden lg:flex">
-                <a href="tel:+12035263516" class="contact-quick-btn">📞 Call Now</a>
-                <a href="mailto:unitedflooringamerica@gmail.com" class="contact-quick-btn">✉ Email Us</a>
+            <div
+              class="home-quote-card relative overflow-hidden rounded-[1.75rem] border border-white/25 shadow-2xl shadow-black/25 ring-1 ring-white/10"
+            >
+              <div class="pointer-events-none absolute inset-0 z-0">
+                <div
+                  class="absolute inset-0 bg-cover bg-center"
+                  style="background-image: url('images/unitedflooringamerica/baner0.1-hero.jpg')"
+                  role="img"
+                  aria-hidden="true"
+                ></div>
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/82 to-amber-950/78 sm:to-[#6b4c20]/80"
+                  aria-hidden="true"
+                ></div>
               </div>
-              <h2 id="contact-quote-heading" class="font-display text-2xl font-bold text-navy">Request a quote</h2>
-              <p class="mt-2 hidden text-sm leading-relaxed text-slate-600 lg:block">
-                Send your request securely — we get it by email and reply as soon as we can (or call us for the fastest
-                answer).
-              </p>
-              <p class="mt-2 text-sm leading-relaxed text-slate-600 lg:hidden">
-                We receive this by email. For the fastest reply, tap Call Now above.
-              </p>
-              <!-- Messages go to your Web3Forms email. Restrict the key to unitedflooringamerica.com at https://dashboard.web3forms.com -->
-              <form
-                id="contact-form"
-                class="contact-form__form mt-7 space-y-6"
-                action="#"
-                method="post"
-                novalidate
-                data-web3forms-key="24c92345-7690-45a1-9e0f-18ee8e703a9b"
-                data-web3forms-feedback="contact-form-feedback"
-                data-web3forms-subject="Flooring inquiry — United Flooring America (contact page)"
-                data-web3forms-footer="— Sent from unitedflooringamerica.com/contact"
-              >
-                <div>
-                  <label class="block text-sm font-medium text-slate-700" for="name">Name</label>
-                  <input
-                    required
-                    id="name"
-                    name="name"
-                    type="text"
-                    autocomplete="name"
-                    placeholder="Full name (for your quote)"
-                    class="contact-form__input mt-2.5 w-full text-slate-900 shadow-sm"
-                  />
+
+              <div class="relative z-10 px-5 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10">
+                <div class="flex flex-col gap-6 sm:gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
+                  <div class="flex min-w-0 flex-1 flex-col items-center text-center lg:items-start lg:text-left">
+                    <div class="flex flex-col items-center gap-3 sm:flex-row sm:items-center sm:gap-4 lg:items-start">
+                      <img
+                        src="images/unitedflooringamerica/logo.jpg"
+                        alt=""
+                        width="120"
+                        height="52"
+                        decoding="async"
+                        class="h-12 w-auto max-w-[200px] rounded-lg bg-white/95 px-2 py-1 shadow-md ring-1 ring-white/40 sm:h-14"
+                      />
+                      <div class="min-w-0">
+                        <p class="font-display text-base font-semibold tracking-tight text-white sm:text-lg">
+                          United Flooring America
+                        </p>
+                        <p class="mt-0.5 text-xs text-white/80 sm:text-sm">Southwestern Connecticut</p>
+                      </div>
+                    </div>
+                    <p
+                      class="mt-5 inline-flex rounded-full bg-gold/90 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-navy sm:text-xs"
+                    >
+                      Free estimate
+                    </p>
+                    <h2
+                      id="contact-quote-heading"
+                      class="font-quote mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-[2.65rem] lg:leading-tight"
+                    >
+                      Request a quote
+                    </h2>
+                  </div>
+
+                  <div
+                    class="flex shrink-0 flex-col items-center border-white/25 text-center sm:flex-row sm:justify-center sm:gap-8 lg:flex-col lg:items-start lg:border-l lg:pl-8 lg:text-left xl:pl-10"
+                  >
+                    <a
+                      href="tel:+12035263516"
+                      class="font-display text-xl font-bold tabular-nums tracking-tight text-white transition hover:text-gold-50 sm:text-2xl"
+                      >(203) 526-3516</a
+                    >
+                    <p class="mt-2 flex items-center justify-center gap-2 text-sm text-white/85 lg:mt-3 lg:justify-start">
+                      <svg class="h-4 w-4 shrink-0 opacity-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      <span>We aim to respond within 24 hours</span>
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <label class="block text-sm font-medium text-slate-700" for="email">Email</label>
-                  <input
-                    required
-                    id="email"
-                    name="email"
-                    type="email"
-                    autocomplete="email"
-                    placeholder="Email — e.g. you@gmail.com"
-                    class="contact-form__input mt-2.5 w-full text-slate-900 shadow-sm"
-                  />
+
+                <!-- Web3Forms: restrict key to unitedflooringamerica.com at https://dashboard.web3forms.com -->
+                <form
+                  id="contact-form"
+                  class="mt-6 space-y-4 sm:mt-8"
+                  action="#"
+                  method="post"
+                  novalidate
+                  data-web3forms-key="24c92345-7690-45a1-9e0f-18ee8e703a9b"
+                  data-web3forms-feedback="contact-form-feedback"
+                  data-web3forms-subject="Flooring inquiry — United Flooring America (contact page)"
+                  data-web3forms-footer="— Sent from unitedflooringamerica.com/contact"
+                >
+                  <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                    <div>
+                      <label class="sr-only" for="name">Name</label>
+                      <input
+                        required
+                        id="name"
+                        name="name"
+                        type="text"
+                        autocomplete="name"
+                        placeholder="Name"
+                        class="home-quote-input w-full min-w-0 rounded-full border-0 bg-gold-50/95 px-5 py-3.5 text-sm font-medium text-navy placeholder:text-slate-500 shadow-inner shadow-black/5 ring-1 ring-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                      />
+                    </div>
+                    <div>
+                      <label class="sr-only" for="email">Email</label>
+                      <input
+                        required
+                        id="email"
+                        name="email"
+                        type="email"
+                        autocomplete="email"
+                        placeholder="Email"
+                        class="home-quote-input w-full min-w-0 rounded-full border-0 bg-gold-50/95 px-5 py-3.5 text-sm font-medium text-navy placeholder:text-slate-500 shadow-inner shadow-black/5 ring-1 ring-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                      />
+                    </div>
+                    <div class="sm:col-span-2 lg:col-span-1">
+                      <label class="sr-only" for="contact-zip">Project zip code</label>
+                      <input
+                        id="contact-zip"
+                        name="zip"
+                        type="text"
+                        inputmode="numeric"
+                        autocomplete="postal-code"
+                        placeholder="Project zip code"
+                        class="home-quote-input w-full min-w-0 rounded-full border-0 bg-gold-50/95 px-5 py-3.5 text-sm font-medium text-navy placeholder:text-slate-500 shadow-inner shadow-black/5 ring-1 ring-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label class="sr-only" for="phone">Phone</label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      autocomplete="tel"
+                      placeholder="Phone (optional)"
+                      class="home-quote-input w-full min-w-0 rounded-full border-0 bg-gold-50/95 px-5 py-3.5 text-sm font-medium text-navy placeholder:text-slate-500 shadow-inner shadow-black/5 ring-1 ring-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                    />
+                  </div>
+                  <div>
+                    <label class="sr-only" for="contact-service">Services</label>
+                    <div class="relative min-w-0">
+                      <select
+                        id="contact-service"
+                        name="service"
+                        class="home-quote-input home-quote-select w-full appearance-none rounded-full border-0 bg-gold-50/95 py-3.5 pl-5 pr-10 text-sm font-medium text-navy shadow-inner shadow-black/5 ring-1 ring-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                      >
+                        <option value="" selected disabled>Select services</option>
+                        <option value="Hardwood installation">Hardwood installation</option>
+                        <option value="Refinishing">Hardwood refinishing</option>
+                        <option value="Vinyl / LVP">Vinyl / LVP</option>
+                        <option value="Laminate">Laminate</option>
+                        <option value="Tile / stone">Tile / stone</option>
+                        <option value="Commercial / VCT">Commercial / VCT</option>
+                        <option value="Repairs">Repairs</option>
+                        <option value="Multiple / not sure yet">Multiple / not sure yet</option>
+                      </select>
+                      <span class="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-navy/70" aria-hidden="true">▾</span>
+                    </div>
+                  </div>
+                  <div>
+                    <label class="sr-only" for="message">Project details</label>
+                    <textarea
+                      required
+                      id="message"
+                      name="message"
+                      rows="4"
+                      placeholder="Rooms, square footage, flooring type, and anything else we should know…"
+                      class="home-quote-input w-full resize-y rounded-3xl border-0 bg-gold-50/95 px-5 py-4 text-sm font-medium text-navy placeholder:text-slate-500 shadow-inner shadow-black/5 ring-1 ring-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    id="contact-form-submit"
+                    class="inline-flex w-full min-h-[2.875rem] items-center justify-center gap-2 rounded-full bg-gold px-6 py-3.5 text-sm font-bold text-navy shadow-lg shadow-black/20 transition hover:bg-gold-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-navy/40"
+                  >
+                    Get estimate
+                    <span class="text-base font-normal leading-none" aria-hidden="true">↗</span>
+                  </button>
+                  <p id="contact-form-feedback" class="contact-form-feedback mt-2 text-left" role="status" aria-live="polite" hidden></p>
+                </form>
+
+                <div class="mt-6 flex flex-col gap-4 border-t border-white/20 pt-6 text-center text-sm text-white/90 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-6 sm:gap-y-2 lg:justify-between lg:text-left">
+                  <p>
+                    Or email
+                    <a
+                      href="mailto:unitedflooringamerica@gmail.com"
+                      class="break-all font-semibold text-white underline decoration-white/50 underline-offset-4 transition hover:decoration-white"
+                      >unitedflooringamerica@gmail.com</a
+                    >
+                  </p>
+                  <p class="text-white/80">
+                    Prefer to browse first?
+                    <a
+                      href="gallery.html"
+                      class="font-semibold text-white underline decoration-white/50 underline-offset-4 transition hover:decoration-white"
+                      >View our gallery</a
+                    >
+                    ·
+                    <a
+                      href="index.html"
+                      class="font-semibold text-white underline decoration-white/50 underline-offset-4 transition hover:decoration-white"
+                      >Home</a
+                    >
+                  </p>
                 </div>
-                <div>
-                  <label class="block text-sm font-medium text-slate-700" for="phone">Phone</label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    autocomplete="tel"
-                    placeholder="Phone — (203) 555-1234"
-                    class="contact-form__input mt-2.5 w-full text-slate-900 shadow-sm"
-                  />
-                </div>
-                <div>
-                  <label class="block text-sm font-medium text-slate-700" for="message">Message</label>
-                  <textarea
-                    required
-                    id="message"
-                    name="message"
-                    rows="5"
-                    placeholder="Tell us: rooms, square footage, timeline, flooring type…"
-                    class="contact-form__input contact-form__textarea mt-2.5 w-full resize-y text-slate-900 shadow-sm"
-                  ></textarea>
-                </div>
-                <button type="submit" class="contact-form-submit" id="contact-form-submit">Get Free Estimate →</button>
-                <p id="contact-form-feedback" class="contact-form-feedback mt-2" role="status" aria-live="polite" hidden></p>
-              </form>
+              </div>
             </div>
           </div>
           <div class="contact-map-col fade-in-section order-2 flex flex-col lg:order-none lg:pt-1">
