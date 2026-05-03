@@ -972,6 +972,20 @@ main#main-content {
   display: block;
 }
 
+.hero-impact-light-title-line--brand {
+  max-width: min(96vw, 22rem);
+  font-size: clamp(1.7rem, 4.35vw + 0.62rem, 2.95rem);
+  line-height: 1.07;
+  text-wrap: balance;
+}
+
+@media (min-width: 640px) {
+  .hero-impact-light-title-line--brand {
+    max-width: none;
+    font-size: clamp(2rem, 4.85vw + 0.72rem, 3.35rem);
+  }
+}
+
 .hero-impact-light-title__dot {
   letter-spacing: 0;
 }
