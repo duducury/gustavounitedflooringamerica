@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#0f2847" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <!-- Favicon + PWA hints (also used by Google for result icon); PNG 48 meets Google favicon guidelines -->
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-180.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/images/icons/favicon-48.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
     <title>Flooring Company in Connecticut | Hardwood, Vinyl &amp; Laminate | United Flooring America</title>
     <meta
       name="description"
@@ -99,8 +109,14 @@
               { "@type": "State", "name": "Vermont" }
             ],
             "priceRange": "$$",
-            "logo": "https://unitedflooringamerica.com/images/unitedflooringamerica/logo.jpg",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://unitedflooringamerica.com/images/unitedflooringamerica/logo.jpg",
+              "width": 260,
+              "height": 70
+            },
             "image": [
+              "https://unitedflooringamerica.com/images/unitedflooringamerica/og-share.jpg",
               "https://unitedflooringamerica.com/images/unitedflooringamerica/banernovo.jpeg",
               "https://unitedflooringamerica.com/images/unitedflooringamerica/static3.jpeg"
             ],
@@ -152,6 +168,20 @@
             "provider": { "@id": "https://unitedflooringamerica.com/#business" },
             "areaServed": { "@type": "State", "name": "Connecticut" },
             "description": "Sanding and refinishing to restore Connecticut wood floors."
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://unitedflooringamerica.com/#website",
+            "url": "https://unitedflooringamerica.com/",
+            "name": "United Flooring America",
+            "inLanguage": "en-US",
+            "publisher": { "@id": "https://unitedflooringamerica.com/#business" },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://unitedflooringamerica.com/images/unitedflooringamerica/og-share.jpg",
+              "width": 1200,
+              "height": 630
+            }
           }
         ]
       }
