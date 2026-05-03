@@ -237,9 +237,9 @@ main#main-content {
 
 @media (min-width: 640px) {
   .hero-swiper.hero-slide-shell {
-    height: min(88vh, 860px);
-    min-height: min(88vh, 860px);
-    max-height: min(88vh, 860px);
+    height: min(72vh, 640px);
+    min-height: min(72vh, 640px);
+    max-height: min(72vh, 640px);
   }
 }
 
@@ -264,7 +264,25 @@ main#main-content {
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
+  /* allow wheel scroll to chain to the page when this panel has no scrollbar */
+  overscroll-behavior-y: auto;
+}
+
+@media (min-width: 640px) {
+  /* desktop: frontal area is normally not scrolled; avoid trapping mouse wheel here */
+  .hero-swiper .swiper-slide > .hero-slide-shell > .hero-unified-front {
+    overflow-y: visible;
+    -webkit-overflow-scrolling: auto;
+  }
+}
+
+/* Extreme short desktop/tall-zoom: restore inner scroll if content ever overflows */
+@media (min-width: 640px) and (max-height: 520px) {
+  .hero-swiper .swiper-slide > .hero-slide-shell > .hero-unified-front {
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    max-height: 100%;
+  }
 }
 
 .hero-swiper .hero-swiper-pagination.swiper-pagination {
