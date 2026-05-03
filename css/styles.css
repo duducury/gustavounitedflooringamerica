@@ -891,7 +891,43 @@ main#main-content {
   }
 }
 
-/* Slide 1 — light airy hero (banernovo): no glass panel, soft overlay */
+/* Slide 1 — light hero: fundo nítido + vigneta para legibilidade + texto em duas linhas */
+
+.hero-impact-light-bg-shell {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-impact-light-bg-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  object-fit: cover;
+  object-position: center center;
+  filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-impact-light-bg-img {
+    filter: none;
+    transform: none;
+  }
+}
+
+.hero-slide--impact.hero-slide--impact-light .hero-gradient {
+  background:
+    radial-gradient(
+      ellipse 78% 64% at 50% 48%,
+      rgb(62 62 68 / 0.52) 0%,
+      rgb(43 41 46 / 0.36) 38%,
+      rgb(38 37 43 / 0.2) 62%,
+      rgb(255 255 255 / 0) 78%
+    ),
+    linear-gradient(180deg, rgb(32 31 38 / 0.32) 0%, rgb(20 18 23 / 0.34) 45%, rgb(14 12 16 / 0.42) 100%);
+}
 
 .hero-slide--impact.hero-slide--impact-light .hero-unified-inner {
   padding: clamp(1.25rem, 4vw, 2rem) 1rem;
@@ -910,34 +946,30 @@ main#main-content {
   }
 }
 
-.hero-slide--impact.hero-slide--impact-light .hero-gradient {
-  background: linear-gradient(
-    180deg,
-    rgb(38 34 29 / 0.26) 0%,
-    rgb(28 22 18 / 0.2) 45%,
-    rgb(14 11 9 / 0.38) 100%
-  );
-}
-
 .hero-slide--impact.hero-slide--impact-light .grain-overlay {
   opacity: 0.022 !important;
 }
 
-.hero-slide--impact-light__photo.hero-cover-img {
-  object-position: center center;
-}
-
 .hero-impact-light-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.02em;
   margin: 0;
   font-family: "Cormorant Garamond", Georgia, ui-serif, serif;
   font-weight: 600;
-  font-size: clamp(2.125rem, 5.5vw + 0.55rem, 3.875rem);
-  line-height: 1.06;
+  font-size: clamp(1.95rem, 4.8vw + 0.75rem, 3.25rem);
+  line-height: 1.05;
   letter-spacing: -0.02em;
   color: #fff;
   text-shadow:
     0 3px 32px rgb(0 0 0 / 0.32),
     0 1px 4px rgb(0 0 0 / 0.22);
+}
+
+.hero-impact-light-title-line {
+  display: block;
 }
 
 .hero-impact-light-title__dot {
@@ -948,13 +980,14 @@ main#main-content {
   display: block;
   width: 3.125rem;
   height: 1px;
-  margin: clamp(1.375rem, 3.2vw, 1.85rem) auto 0;
+  margin: clamp(1.25rem, 3.2vw, 1.65rem) auto 0;
   background: rgb(255 255 255 / 0.62);
 }
 
 .hero-impact-light-kicker {
   margin: clamp(1.05rem, 2.4vw, 1.35rem) 0 0;
   padding: 0;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
   font-size: clamp(0.625rem, 1.65vw + 0.38rem, 0.6875rem);
   font-weight: 600;
   letter-spacing: 0.24em;
@@ -1244,12 +1277,15 @@ main#main-content {
   }
 
   .hero-slide--impact.hero-slide--impact-light .hero-gradient {
-    background: linear-gradient(
-      180deg,
-      rgb(42 34 29 / 0.34) 0%,
-      rgb(28 23 18 / 0.26) 48%,
-      rgb(22 17 13 / 0.48) 100%
-    );
+    background:
+      radial-gradient(
+        ellipse 72% 58% at 50% 46%,
+        rgb(58 58 64 / 0.52) 0%,
+        rgb(40 39 44 / 0.38) 40%,
+        rgb(38 37 43 / 0.2) 62%,
+        rgb(255 255 255 / 0) 80%
+      ),
+      linear-gradient(180deg, rgb(28 26 32 / 0.36) 0%, rgb(17 15 21 / 0.38) 48%, rgb(11 10 14 / 0.45) 100%);
   }
 
   .hero-slide--impact .hero-unified-inner .hero-unified-sub {
