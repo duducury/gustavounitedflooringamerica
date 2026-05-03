@@ -891,6 +891,125 @@ main#main-content {
   }
 }
 
+/* Slide 1 — light airy hero (banernovo): no glass panel, soft overlay */
+
+.hero-slide--impact.hero-slide--impact-light .hero-unified-inner {
+  padding: clamp(1.25rem, 4vw, 2rem) 1rem;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  transition: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-slide--impact.hero-slide--impact-light .hero-unified-inner:hover {
+    transform: none;
+  }
+}
+
+.hero-slide--impact.hero-slide--impact-light .hero-gradient {
+  background: linear-gradient(
+    180deg,
+    rgb(38 34 29 / 0.26) 0%,
+    rgb(28 22 18 / 0.2) 45%,
+    rgb(14 11 9 / 0.38) 100%
+  );
+}
+
+.hero-slide--impact.hero-slide--impact-light .grain-overlay {
+  opacity: 0.022 !important;
+}
+
+.hero-slide--impact-light__photo.hero-cover-img {
+  object-position: center center;
+}
+
+.hero-impact-light-title {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, ui-serif, serif;
+  font-weight: 600;
+  font-size: clamp(2.125rem, 5.5vw + 0.55rem, 3.875rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-shadow:
+    0 3px 32px rgb(0 0 0 / 0.32),
+    0 1px 4px rgb(0 0 0 / 0.22);
+}
+
+.hero-impact-light-title__dot {
+  letter-spacing: 0;
+}
+
+.hero-impact-light-rule {
+  display: block;
+  width: 3.125rem;
+  height: 1px;
+  margin: clamp(1.375rem, 3.2vw, 1.85rem) auto 0;
+  background: rgb(255 255 255 / 0.62);
+}
+
+.hero-impact-light-kicker {
+  margin: clamp(1.05rem, 2.4vw, 1.35rem) 0 0;
+  padding: 0;
+  font-size: clamp(0.625rem, 1.65vw + 0.38rem, 0.6875rem);
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.95);
+  text-shadow: 0 2px 16px rgb(0 0 0 / 0.28);
+}
+
+.hero-slide--impact.hero-slide--impact-light .hero-unified-ctas {
+  margin-top: clamp(1.75rem, 3.75vw, 2.35rem);
+  gap: 0.875rem;
+}
+
+.hero-impact-light-cta {
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 1.875rem;
+  border-radius: 2px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  background: #a88c6a;
+  box-shadow: 0 6px 28px rgb(0 0 0 / 0.22);
+  transition:
+    background 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.hero-impact-light-cta:hover {
+  background: #957a60;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 34px rgb(0 0 0 / 0.28);
+}
+
+.hero-impact-light-cta:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.hero-impact-light-cta-secondary {
+  text-shadow: 0 1px 14px rgb(0 0 0 / 0.35);
+}
+
+.hero-impact-light-cta-secondary:focus-visible {
+  outline: 2px solid rgb(255 255 255 / 0.9);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 /* Slide 3 — conversion only: blue glass + gold CTA */
 
 .hero-slide--conversion .hero-gradient {
@@ -1113,6 +1232,26 @@ main#main-content {
     );
   }
 
+  .hero-slide--impact.hero-slide--impact-light .hero-unified-inner {
+    max-width: min(52rem, 100%);
+    padding: clamp(1.85rem, 4vw, 2.85rem) 1rem;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .hero-slide--impact.hero-slide--impact-light .hero-gradient {
+    background: linear-gradient(
+      180deg,
+      rgb(42 34 29 / 0.34) 0%,
+      rgb(28 23 18 / 0.26) 48%,
+      rgb(22 17 13 / 0.48) 100%
+    );
+  }
+
   .hero-slide--impact .hero-unified-inner .hero-unified-sub {
     margin-top: 1rem;
   }
@@ -1189,6 +1328,18 @@ main#main-content {
     animation: hero-fade-rise-lg 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
   }
 
+  .hero-swiper.swiper-initialized .swiper-slide-active.hero-slide--impact-light .hero-impact-light-title {
+    animation: hero-fade-rise-lg 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.32s both;
+  }
+
+  .hero-swiper.swiper-initialized .swiper-slide-active.hero-slide--impact-light .hero-impact-light-rule {
+    animation: hero-fade-rise-lg 0.58s cubic-bezier(0.22, 1, 0.36, 1) 0.48s both;
+  }
+
+  .hero-swiper.swiper-initialized .swiper-slide-active.hero-slide--impact-light .hero-impact-light-kicker {
+    animation: hero-fade-rise-lg 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.56s both;
+  }
+
   .hero-swiper.swiper-initialized .swiper-slide-active.hero-unified-slide .hero-unified-trust,
   .hero-swiper.swiper-initialized .swiper-slide-active.hero-unified-slide .hero-unified-pills,
   .hero-swiper.swiper-initialized .swiper-slide-active.hero-unified-slide .hero-unified-highlight {
@@ -1219,6 +1370,10 @@ main#main-content {
   }
 
   .hero-slide--services .hero-unified-btn-primary.hero-unified-btn-primary--slide-services:hover {
+    transform: none;
+  }
+
+  .hero-impact-light-cta:hover {
     transform: none;
   }
 
