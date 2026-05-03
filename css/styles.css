@@ -1733,10 +1733,13 @@ main#main-content {
   );
 }
 
-/*
- * Full-bleed #estimate-cta: desktop = .cta-parallax-bg; mobile + JS = overlay fixo com clip.
+/* Full-bleed #estimate-cta: desktop = .cta-parallax-bg; mobile + JS = overlay fixo com clip.
  * Sem JS / “reduzir movimento” ⇒ .estimate-cta-mobile-photo no fluxo.
+ * Camada fixed: fundo navy evita flashes brancos durante o repaint do clip ao scroll (mobile).
  */
+.estimate-cta-fixed-clip-root {
+  background-color: var(--cta-strip-mobile-shell-bg, #0f2847);
+}
 html.js #estimate-cta:not(.estimate-cta-show-inline-photo) .estimate-cta-mobile-photo {
   visibility: hidden;
 }
