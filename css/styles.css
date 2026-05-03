@@ -168,7 +168,8 @@ main#main-content {
   }
 }
 
-/* Home narrow viewports: stacked fade-in + stagger + trust-metrics “hidden until visible” pode somar ópio (cinza/branco estranho) no Safari até o observer + Swiper re-medir slides com pai opacity:0 — mostrar conteúdo por defeito aqui */
+/* Home narrow viewports / About mobile: stacked fade-in + observers podem causar dois scrollbars
+   e wheel “preso” até reconciliar métricas (Safari/Chrome mobile). Sem animação por defeito. */
 @media (max-width: 767px) {
   body.home-page main .fade-in-section {
     opacity: 1 !important;
@@ -188,6 +189,14 @@ main#main-content {
   }
 }
 
+/* About: até ~tablet — fades iniciais ligados ao IO podem piorar scrollbar/scroll (home já evita só em telas estreitas). */
+@media (max-width: 1023px) {
+  body.about-page main .fade-in-section {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
 /* Home — What We Install (#services): service card carousel */
 .services-cards-swiper .swiper-slide {
   display: flex;
@@ -2623,26 +2632,19 @@ body.services-page .service-row__lede {
   }
 }
 
-/* --- About page: cards, trust bar, mid CTA, timeline, image breaks --- */
+/* --- About page: cards, trust bar, mid CTA, timeline, image breaks ---
+ * Avoid content-visibility:auto on in-flow sections: wrong document height, dual scrollbars,
+ * stuck wheel scrolling until reconciliation (often several seconds).
+ */
 body.about-page {
   --about-gold: #c9a24a;
-  overflow-x: clip;
+  overflow-x: hidden;
+  overflow-anchor: none;
 }
 
-body.about-page #our-story,
-body.about-page [aria-labelledby="about-mission-heading"],
-body.about-page #process {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 420px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  body.about-page #our-story,
-  body.about-page [aria-labelledby="about-mission-heading"],
-  body.about-page #process {
-    content-visibility: visible;
-    contain-intrinsic-size: auto;
-  }
+body.about-page main#main-content {
+  overflow-x: visible;
+  max-width: 100%;
 }
 
 .about-values-compact {
