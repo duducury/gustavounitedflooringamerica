@@ -54,6 +54,7 @@
 
 
   if (statsCarousel) {
+    var statsGalleryRoot = document.getElementById("trust-stats-gallery");
     var narrowStats =
       typeof window.matchMedia === "function"
         ? window.matchMedia("(max-width: 1023px)")
@@ -63,20 +64,46 @@
     var coarsePointer =
       typeof window.matchMedia === "function" && window.matchMedia("(pointer: coarse)").matches;
 
-    /** Em ecrã estreito: autoplay; em desktop há um pouco de autoplay com rato fino. Setas sempre (telefone/tablet inclusos). */
-    var statsAutoplay = false;
+    /** Em ecrã estreito: autoplay; em desktop há um pouco de autoplay com rato fino — só quando a zona está à vista (igual Portfolio). */
+    var statsAutoplayConfig = false;
     if (!reducedMotion && isNarrowStats) {
-      statsAutoplay = {
+      statsAutoplayConfig = {
         delay: 4500,
         disableOnInteraction: false,
         pauseOnMouseEnter: false,
       };
     } else if (!reducedMotion && !isNarrowStats && !coarsePointer) {
-      statsAutoplay = {
+      statsAutoplayConfig = {
         delay: 6200,
         disableOnInteraction: true,
         pauseOnMouseEnter: true,
       };
+    }
+
+    var statsObserveEl = statsGalleryRoot || statsCarousel.closest(".stats-gallery-shell");
+
+    function syncStatsAutoplay() {
+      if (!statsSwiperInst || !statsAutoplayConfig || !statsSwiperInst.autoplay) return;
+      if (document.visibilityState !== "visible") {
+        statsSwiperInst.autoplay.stop();
+        return;
+      }
+      if (!statsObserveEl) {
+        statsSwiperInst.autoplay.stop();
+        return;
+      }
+      var r = statsObserveEl.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight || 0;
+      if (vh <= 0 || r.height <= 0) {
+        statsSwiperInst.autoplay.stop();
+        return;
+      }
+      var overlap = Math.min(r.bottom, vh) - Math.max(r.top, 0);
+      if (overlap < Math.min(vh * 0.16, r.height * 0.18)) {
+        statsSwiperInst.autoplay.stop();
+        return;
+      }
+      statsSwiperInst.autoplay.start();
     }
 
     var statsPaginationEl = document.getElementById("stats-gallery-pagination");
@@ -97,7 +124,7 @@
       threshold: 8,
       longSwipesRatio: 0.35,
       passiveListeners: true,
-      autoplay: statsAutoplay,
+      autoplay: statsAutoplayConfig,
       navigation: {
         prevEl: "#stats-gallery-prev",
         nextEl: "#stats-gallery-next",
@@ -111,7 +138,37 @@
           }
         : undefined,
       keyboard: { enabled: true, onlyInViewport: true },
+      on: {
+        init: function () {
+          if (this.autoplay && typeof this.autoplay.stop === "function") {
+            this.autoplay.stop();
+          }
+        },
+      },
     });
+
+    if (statsAutoplayConfig && statsObserveEl) {
+      if ("IntersectionObserver" in window) {
+        var statsIo = new IntersectionObserver(syncStatsAutoplay, {
+          root: null,
+          threshold: [0, 0.06, 0.12, 0.2, 0.35, 0.5],
+          rootMargin: "-6% 0px -14% 0px",
+        });
+        statsIo.observe(statsObserveEl);
+      } else {
+        window.addEventListener("scroll", syncStatsAutoplay, { passive: true });
+      }
+      document.addEventListener("visibilitychange", syncStatsAutoplay, false);
+      window.addEventListener("resize", syncStatsAutoplay, { passive: true });
+      window.addEventListener(
+        "orientationchange",
+        function () {
+          window.setTimeout(syncStatsAutoplay, 240);
+        },
+        { passive: true },
+      );
+      syncStatsAutoplay();
+    }
 
     statsCarousel.classList.add("stats-gallery-swiper--ready");
 
