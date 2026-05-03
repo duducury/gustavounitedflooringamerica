@@ -63,7 +63,7 @@
     var coarsePointer =
       typeof window.matchMedia === "function" && window.matchMedia("(pointer: coarse)").matches;
 
-    /** Em ecrã estreito: autoplay (sem setas no HTML/CSS). Desktop: setas visíveis + autoplay só com rato fino. */
+    /** Em ecrã estreito: autoplay; em desktop há um pouco de autoplay com rato fino. Setas sempre (telefone/tablet inclusos). */
     var statsAutoplay = false;
     if (!reducedMotion && isNarrowStats) {
       statsAutoplay = {
@@ -78,6 +78,8 @@
         pauseOnMouseEnter: true,
       };
     }
+
+    var statsPaginationEl = document.getElementById("stats-gallery-pagination");
 
     statsSwiperInst = new Swiper(statsCarousel, {
       loop: false,
@@ -96,12 +98,18 @@
       longSwipesRatio: 0.35,
       passiveListeners: true,
       autoplay: statsAutoplay,
-      navigation: !isNarrowStats
+      navigation: {
+        prevEl: "#stats-gallery-prev",
+        nextEl: "#stats-gallery-next",
+      },
+      pagination: statsPaginationEl
         ? {
-            prevEl: "#stats-gallery-prev",
-            nextEl: "#stats-gallery-next",
+            el: statsPaginationEl,
+            clickable: true,
+            bulletClass: "swiper-pagination-bullet stats-gallery-bullet",
+            bulletActiveClass: "swiper-pagination-bullet-active",
           }
-        : false,
+        : undefined,
       keyboard: { enabled: true, onlyInViewport: true },
     });
 
@@ -228,6 +236,26 @@
     /* rewind: arrasto e setas fiáveis. loop:true+coverflow volta a ficar buggy; “roda infinita” não cabe bem neste modo. */
     var workSlideCount = el.querySelectorAll(".swiper-wrapper > .swiper-slide").length;
 
+    function syncWorkAutoplay() {
+      if (!swiper || !swiper.autoplay) return;
+      if (document.visibilityState !== "visible") {
+        swiper.autoplay.stop();
+        return;
+      }
+      var r = root.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight || 0;
+      if (vh <= 0 || r.height <= 0) {
+        swiper.autoplay.stop();
+        return;
+      }
+      var overlap = Math.min(r.bottom, vh) - Math.max(r.top, 0);
+      if (overlap < Math.min(vh * 0.16, r.height * 0.18)) {
+        swiper.autoplay.stop();
+        return;
+      }
+      swiper.autoplay.start();
+    }
+
     swiper = new Swiper(el, {
       effect: "coverflow",
       grabCursor: true,
@@ -247,6 +275,13 @@
         delay: 5500,
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
+      },
+      on: {
+        init: function () {
+          if (this.autoplay && typeof this.autoplay.stop === "function") {
+            this.autoplay.stop();
+          }
+        },
       },
       coverflowEffect: {
         rotate: 46,
@@ -276,6 +311,29 @@
         },
       },
     });
+
+    if ("IntersectionObserver" in window) {
+      var workIo = new IntersectionObserver(syncWorkAutoplay, {
+        root: null,
+        threshold: [0, 0.06, 0.12, 0.2, 0.35, 0.5],
+        rootMargin: "-6% 0px -14% 0px",
+      });
+      workIo.observe(root);
+    } else {
+      window.addEventListener("scroll", syncWorkAutoplay, { passive: true });
+    }
+
+    document.addEventListener("visibilitychange", syncWorkAutoplay, false);
+    window.addEventListener("resize", syncWorkAutoplay, { passive: true });
+    window.addEventListener(
+      "orientationchange",
+      function () {
+        window.setTimeout(syncWorkAutoplay, 240);
+      },
+      { passive: true },
+    );
+
+    syncWorkAutoplay();
 
     function updateWorkFraction() {
       if (!paginationEl || !swiper) return;

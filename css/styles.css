@@ -1238,6 +1238,46 @@ main#main-content {
   border-radius: inherit;
 }
 
+#stats-gallery-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  margin: 0;
+  padding: 0 0.2rem;
+  line-height: 1;
+  max-width: 8rem;
+}
+
+@media (min-width: 480px) {
+  #stats-gallery-pagination {
+    max-width: none;
+    gap: 0.4rem;
+  }
+}
+
+#stats-gallery-pagination .swiper-pagination-bullet {
+  width: 7px !important;
+  height: 7px !important;
+  margin: 0 !important;
+  opacity: 0.4;
+  background: var(--accent-navy, #0f2847);
+  transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+}
+
+#stats-gallery-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.08);
+  background: var(--accent-gold, #b8923c);
+}
+
 .stats-gallery-swiper .stats-gallery-photo {
   min-height: 12rem;
 }

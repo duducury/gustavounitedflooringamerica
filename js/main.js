@@ -141,7 +141,26 @@
       return;
     }
 
+    var mqNarrow = window.matchMedia("(max-width: 767px)");
+    var inViewport = false;
+
+    /** Mobile: preload enough data for autoplay-painted frames (metadata alone often stays black until play). */
+    function syncPreload() {
+      video.preload = mqNarrow.matches ? "auto" : "metadata";
+    }
+
+    syncPreload();
+
     function tryPlay() {
+      if (mqNarrow.matches) {
+        video.muted = true;
+        var pn = video.play();
+        if (pn !== undefined && typeof pn.catch === "function") {
+          pn.catch(function () {});
+        }
+        return;
+      }
+
       video.muted = false;
       var p = video.play();
       if (p !== undefined && typeof p.catch === "function") {
@@ -159,29 +178,56 @@
     document.addEventListener(
       "visibilitychange",
       function () {
-        if (document.visibilityState === "hidden") pausePlayback();
+        if (document.visibilityState === "hidden") {
+          pausePlayback();
+        } else if (document.visibilityState === "visible" && inViewport) {
+          tryPlay();
+        }
       },
       false,
     );
 
-    // rootMargin reduce a zona “central” da viewport para não dar play assim que aparece uma borda ao fundo da página.
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            tryPlay();
-          } else {
-            pausePlayback();
-          }
-        });
-      },
-      {
-        threshold: [0],
-        rootMargin: "-14% 0px -26% 0px",
-      },
-    );
+    /** Observe the video (not the whole section): avoids play while the fade-in wrapper is still invisible on mobile. */
+    function viewportObserverOptions() {
+      if (mqNarrow.matches) {
+        return { threshold: [0.22], rootMargin: "0px 0px 0px 0px" };
+      }
+      return { threshold: [0], rootMargin: "-14% 0px -26% 0px" };
+    }
 
-    observer.observe(section);
+    function createObserver(opts) {
+      return new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.target !== video) return;
+            inViewport = entry.isIntersecting;
+            if (inViewport) {
+              tryPlay();
+            } else {
+              pausePlayback();
+            }
+          });
+        },
+        opts,
+      );
+    }
+
+    var observer = createObserver(viewportObserverOptions());
+
+    observer.observe(video);
+
+    function onNarrowBreakpointChange() {
+      observer.disconnect();
+      syncPreload();
+      observer = createObserver(viewportObserverOptions());
+      observer.observe(video);
+    }
+
+    if (typeof mqNarrow.addEventListener === "function") {
+      mqNarrow.addEventListener("change", onNarrowBreakpointChange);
+    } else if (typeof mqNarrow.addListener === "function") {
+      mqNarrow.addListener(onNarrowBreakpointChange);
+    }
   })();
 
   /** #estimate-cta (< md): clip-path fixed overlay; desktop = .cta-parallax-bg (static1.jpeg) + fixed; mobile <img> static2.png */
